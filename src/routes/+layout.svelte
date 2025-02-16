@@ -7,25 +7,53 @@
 	mapboxgl.accessToken =
 		'pk.eyJ1IjoicmVmYWN0MHIiLCJhIjoiY203ODZndDB3MHI4bTJrcHVpcDl0a2NjYiJ9.oFH9TjRqRRobGDri9dbmfA';
 
-	onMount(() => {
+	onMount(async () => {
+		// default position in case geolocation fails
+		let userLocation = [-122.205, 47.613];
+
+		// get user location if possible
+		try {
+			const position = await new Promise((resolve, reject) => {
+				if (!navigator.geolocation) {
+					reject(new Error('Geolocation not supported'));
+				}
+
+				navigator.geolocation.getCurrentPosition(
+					(position) => resolve(position),
+					(error) => reject(error),
+					{
+						enableHighAccuracy: true
+					}
+				);
+			});
+			userLocation = [position.coords.longitude, position.coords.latitude];
+			console.log('Got position:', position);
+		} catch (error) {
+			console.warn('Failed to get location:', error);
+		}
+
+		// initialize map
 		const map = new mapboxgl.Map({
 			container: 'map', // container ID
 			style: 'mapbox://styles/mapbox/satellite-streets-v12', // style URL
-			center: [-122.205, 47.613], // starting position [lng, lat]
+			center: userLocation, // starting position [lng, lat]
 			zoom: 16 // starting zoom
 		});
 
-		map.addControl(
-			new mapboxgl.GeolocateControl({
-				positionOptions: {
-					enableHighAccuracy: true
-				},
-				// When active the map will receive updates to the device's location as it changes.
-				trackUserLocation: true,
-				// Draw an arrow next to the location dot to indicate which direction the device is heading.
-				showUserHeading: true
-			})
-		);
+		// add geolocate control
+		const geolocate = new mapboxgl.GeolocateControl({
+			positionOptions: {
+				enableHighAccuracy: true
+			},
+			trackUserLocation: true,
+			showUserHeading: true
+		});
+		map.addControl(geolocate);
+
+		// turn on geolocation when map is loaded
+		map.on('load', () => {
+			geolocate.trigger();
+		});
 	});
 </script>
 
