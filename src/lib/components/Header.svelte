@@ -44,5 +44,9 @@
 		color: black;
 		text-decoration: none;
 		display: flex;
+		transition: .2s;
+	}
+	a:hover {
+		color: rgb(234, 72, 78);
 	}
 </style>

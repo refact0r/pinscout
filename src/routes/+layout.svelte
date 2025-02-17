@@ -55,6 +55,29 @@
 		// default position in case geolocation fails
 		let userLocation = [-122.205, 47.613];
 
+		if ($page.url.pathname === "/") {
+			if (logged_in) {
+				map_height = 100;
+				container_height = 0;
+			} else {
+				map_height = 80;
+				container_height = 20;
+			}	
+		} else if ($page.url.pathname === "/dashboard") {
+			if (!logged_in) {
+				goto('/login');
+			} else {
+				map_height = 20;
+				container_height = 80;
+			}
+		} else if ($page.url.pathname === "/login" || $page.url.pathname === "/signup" || $page.url.pathname === "/settings" || $page.url.pathname === "/about") {
+			map_height = 20;
+			container_height = 80;
+		} else {
+			map_height = 50;
+			container_height = 50;
+		}
+
 		// get user location if possible
 		// try {
 		// 	const position = await new Promise((resolve, reject) => {
@@ -109,28 +132,7 @@
 			updateVisiblePins(map);
 		});
 
-		if ($page.url.pathname === "/") {
-			if (logged_in) {
-				map_height = 100;
-				container_height = 0;
-			} else {
-				map_height = 80;
-				container_height = 20;
-			}	
-		} else if ($page.url.pathname === "/dashboard") {
-			if (!logged_in) {
-				goto('/login');
-			} else {
-				map_height = 20;
-				container_height = 80;
-			}
-		} else if ($page.url.pathname === "/login" || $page.url.pathname === "/signup" || $page.url.pathname === "/settings" || $page.url.pathname === "/about") {
-			map_height = 20;
-			container_height = 80;
-		} else {
-			map_height = 50;
-			container_height = 50;
-		}
+		
 	});
 
 
