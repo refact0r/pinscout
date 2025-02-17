@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>leaderboard</title>
+</svelte:head>
+
 <div class="content">
     <h1>Leaderboard</h1>
     <div class="leaderboards">

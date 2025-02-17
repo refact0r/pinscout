@@ -2,6 +2,10 @@
     <h1>Settings</h1>
 </div>
 
+<svelte:head>
+	<title>settings</title>
+</svelte:head>
+
 <style>
     .content {
         text-align: center;

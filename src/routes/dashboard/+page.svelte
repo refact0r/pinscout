@@ -2,6 +2,10 @@
 	import { userState } from '$lib/state.svelte';
 </script>
 
+<svelte:head>
+	<title>dashboard</title>
+</svelte:head>
+
 <div class="content">
 	<div class="dashboard">
 		<h1>Your Dashboard</h1>

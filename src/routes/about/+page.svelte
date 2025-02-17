@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>about</title>
+</svelte:head>
+
 <div class="content">
     <h1>About</h1>
     <p>description of project</p>

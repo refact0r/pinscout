@@ -5,6 +5,10 @@
 	import {GoogleLogo} from 'phosphor-svelte';
 </script>
 
+<svelte:head>
+	<title>login</title>
+</svelte:head>
+
 <div class="box">
 	<h1>Login</h1>
 	<button on:click={login} title="Login with Google">
