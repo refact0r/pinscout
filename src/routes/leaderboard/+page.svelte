@@ -1,5 +1,25 @@
 <script>
-    import {Question} from 'phosphor-svelte';
+	import { Question } from 'phosphor-svelte';
+
+	export let data;
+
+	let pp_sort = data.users.slice();
+	pp_sort.sort((x, y) => y.points - x.points);
+
+	let reviews_sort = data.users.slice();
+	reviews_sort.sort((x, y) => y.num_reviews - x.num_reviews);
+
+	let status_sort = data.users.slice();
+	status_sort.sort((x, y) => y.status_updates - x.status_updates);
+
+	let quests_sort = data.users.slice();
+	quests_sort.sort((x, y) => y.quests_completed - x.quests_completed);
+
+	let friends_sort = data.users.slice();
+	friends_sort.sort((x, y) => y.friends_invited - x.friends_invited);
+
+	let locations_sort = data.users.slice();
+	locations_sort.sort((x, y) => y.locations_marked - x.locations_marked);
 </script>
 
 <svelte:head>
@@ -7,1329 +27,411 @@
 </svelte:head>
 
 <div class="content">
-    <h1>Leaderboards</h1>
-    <div class="leaderboards">
+	<h1>Leaderboards</h1>
+	<div class="leaderboards">
+		<div class="bar">
+			<h2 style="font-size: 2.5rem;">Seasonal Leaderboards</h2>
+			<p>Time Left This Season <Question /> : 00d 00h 00m 00s</p>
+		</div>
+		<div class="line">
+			<div class="leaderboard">
+				<h2>Most PinPoints Earned</h2>
+				<p>Prize: Title "Y1 Spring - Avid PinPoint Collector"</p>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Pinpoints</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each pp_sort as user, i}
+							<tr>
+								<td>{i + 1}</td>
+								<td>
+									<div class="user">
+										<img src={user.avatar_url} alt={user.name} />{user.name}
+									</div>
+								</td>
+								<td>{user.points}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+			<div class="leaderboard">
+				<h2>Most Locations Reviewed</h2>
+				<p>Prize: Title "Y1 Spring - The Outspoken One"</p>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Locations</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each reviews_sort as user, i}
+							<tr>
+								<td>{i + 1}</td>
+								<td>
+									<div class="user">
+										<img src={user.avatar_url} alt={user.name} />{user.name}
+									</div>
+								</td>
+								<td>{user.num_reviews}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+			<div class="leaderboard">
+				<h2>Most Statuses Updated</h2>
+				<p>Prize: Title "Y1 Spring - Avid PinPoint Collector"</p>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Updates</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each status_sort as user, i}
+							<tr>
+								<td>{i + 1}</td>
+								<td>
+									<div class="user">
+										<img src={user.avatar_url} alt={user.name} />{user.name}
+									</div>
+								</td>
+								<td>{user.status_updates}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- <div class="line">
+			<div class="leaderboard">
+				<h2>Most Dis/Approvals Given</h2>
+				<p>Prize: Title "Y1 Spring - A Redditor?"</p>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Locations</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="leaderboard">
+				<h2>Most Approvals Received</h2>
+				<p>Prize: Title "Y1 Spring - Acclaimed Critic"</p>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Locations</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="leaderboard">
+				<h2>Most Disapprovals Received</h2>
+				<p>Prize: Season ban from ability to review</p>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Locations</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div> -->
 
-        <div class="bar">
-            <h2 style="font-size: 2.5rem; margin-top:1rem;">Seasonal Leaderboards</h2>
-            <p>Time Left This Season <Question /> : 00d 00h 00m 00s</p>
-        </div>
-        <div class="line">
-            <div class="leaderboard">
-                <h2>Most PinPoints Earned</h2>
-                <p>Prize: Title "Y1 Spring - Avid PinPoint Collector"</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Pinpoints</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="leaderboard">
-                <h2>Most Locations Reviewed</h2>
-                <p>Prize: Title "Y1 Spring - The Outspoken One"</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Locations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="leaderboard">
-                <h2>Most Statuses Updated</h2>
-                <p>Prize: Title "Y1 Spring - Avid PinPoint Collector"</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Pinpoints</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>            
-        </div>
-        <div class="line">
-            <div class="leaderboard">
-                <h2>Most Dis/Approvals Given</h2>
-                <p>Prize: Title "Y1 Spring - A Redditor?"</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Locations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="leaderboard">
-                <h2>Most Approvals Received</h2>
-                <p>Prize: Title "Y1 Spring - Acclaimed Critic"</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Locations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="leaderboard">
-                <h2>Most Disapprovals Received</h2>
-                <p>Prize: Season ban from ability to review</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Locations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-        </div>
-
-        <div class="bar">
-            <h2 style="font-size: 2.5rem; margin-top:1rem;">Lifetime Leaderboards</h2>
-            <p>No resets, no prizes (except bragging rights)</p>
-        </div>
-        <div class="line">
-            <div class="leaderboard">
-                <h2 style="margin-bottom: 1rem;">Most PinPoints Earned</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Pinpoints</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="leaderboard">
-                <h2 style="margin-bottom: 1rem;">Most Verified Locations Marked</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Locations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="leaderboard">
-                <h2 style="margin-bottom: 1rem;">Most Weekly Quests Completed</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Locations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="line">
-            <div class="leaderboard">
-                <h2 style="margin-bottom:1rem;">Most Locations Reviewed</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Locations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="leaderboard">
-                <h2 style="margin-bottom:1rem;">Most Statuses Updated</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Pinpoints</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> 
-            <div class="leaderboard">
-                <h2 style="margin-bottom:1rem;">Most Friends Invited</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Pinpoints</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>           
-        </div>
-        <div class="line">
-            <div class="leaderboard">
-                <h2 style="margin-bottom:1rem;">Most Dis/Approvals Given</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Locations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="leaderboard">
-                <h2 style="margin-bottom:1rem;">Most Approvals Received</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Locations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="leaderboard">
-                <h2 style="margin-bottom:1rem;">Most Disapprovals Received</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Locations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Placeholder</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>3</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>5</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>7</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>9</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Placeholder</td>
-                            <td>100000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-        </div>
-            
-        
-        
-    </div>
+		<div class="bar">
+			<h2 style="font-size: 2.5rem;">Lifetime Leaderboards</h2>
+			<p>No resets, no prizes (except bragging rights)</p>
+		</div>
+		<div class="line">
+			<div class="leaderboard">
+				<h2 style="margin-bottom: 1rem;">Most PinPoints Earned</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Pinpoints</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each pp_sort as user, i}
+							<tr>
+								<td>{i + 1}</td>
+								<td>
+									<div class="user">
+										<img src={user.avatar_url} alt={user.name} />{user.name}
+									</div>
+								</td>
+								<td>{user.points}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+			<div class="leaderboard">
+				<h2 style="margin-bottom: 1rem;">Most Verified Locations Marked</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Locations</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each locations_sort as user, i}
+							<tr>
+								<td>{i + 1}</td>
+								<td>
+									<div class="user">
+										<img src={user.avatar_url} alt={user.name} />{user.name}
+									</div>
+								</td>
+								<td>{user.locations_marked}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+			<div class="leaderboard">
+				<h2 style="margin-bottom: 1rem;">Most Weekly Quests Completed</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Quests</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each quests_sort as user, i}
+							<tr>
+								<td>{i + 1}</td>
+								<td>
+									<div class="user">
+										<img src={user.avatar_url} alt={user.name} />{user.name}
+									</div>
+								</td>
+								<td>{user.quests_completed}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="line">
+			<div class="leaderboard">
+				<h2 style="margin-bottom:1rem;">Most Locations Reviewed</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Locations</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each reviews_sort as user, i}
+							<tr>
+								<td>{i + 1}</td>
+								<td>
+									<div class="user">
+										<img src={user.avatar_url} alt={user.name} />{user.name}
+									</div>
+								</td>
+								<td>{user.num_reviews}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+			<div class="leaderboard">
+				<h2 style="margin-bottom:1rem;">Most Statuses Updated</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Updates</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each status_sort as user, i}
+							<tr>
+								<td>{i + 1}</td>
+								<td>
+									<div class="user">
+										<img src={user.avatar_url} alt={user.name} />{user.name}
+									</div>
+								</td>
+								<td>{user.status_updates}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+			<div class="leaderboard">
+				<h2 style="margin-bottom:1rem;">Most Friends Invited</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Friends</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each friends_sort as user, i}
+							<tr>
+								<td>{i + 1}</td>
+								<td>
+									<div class="user">
+										<img src={user.avatar_url} alt={user.name} />{user.name}
+									</div>
+								</td>
+								<td>{user.friends_invited}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- <div class="line">
+			<div class="leaderboard">
+				<h2 style="margin-bottom:1rem;">Most Dis/Approvals Given</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Locations</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="leaderboard">
+				<h2 style="margin-bottom:1rem;">Most Approvals Received</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Locations</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="leaderboard">
+				<h2 style="margin-bottom:1rem;">Most Disapprovals Received</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Username</th>
+							<th>Locations</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div> -->
+	</div>
 </div>
 
 <style>
-    .content {
-        text-align: center;
+	.content {
+		text-align: center;
 	}
-    h1 {
-        margin: 2rem 0rem 0rem;
-        font-size: 4rem;
-    }
-    h2 {
-        margin-bottom: -1rem;
-    }
-    .bar{
-        background-color: rgba(255,255,255,.5);
-        width: 96%;
-        margin: 0 2%;
-        border-radius: 1rem;
-    }
-    .leaderboards{
-        overflow: auto;
-        height: 68vh;
-    }
-    .line{
-        padding: 0 2rem 2rem;
-        display:flex;
-        gap: 2%;
-    }
-    .leaderboard{
-        height: 28rem;
-        overflow: auto;
-        flex: 32%;
-        padding: 0rem 2rem;
-        background-color: rgba(255,255,255,.5);
-        border-radius: 1rem;
-    }
-    table{
-        width: 100%;
-        text-align: left;
-    }
-    table, th, td{
-        border: .1rem black solid;
-        border-collapse: collapse;
-    }
-    th, td {
-        padding: .25rem;
-    }
-    ::-webkit-scrollbar {
-        width: .5rem;
-    }
-    ::-webkit-scrollbar-track {
-        background: rgb(0,0,0,0);
-    }
-    ::-webkit-scrollbar-thumb {
-        background-color: black;
-        border-radius: 1vh;
-		transition: .2s;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background-color: rgb(234, 72, 78);
-    }
+	h1 {
+		margin: 2rem 0rem 0rem;
+		font-size: 4rem;
+	}
+	h2,
+	p {
+		margin: 0;
+	}
+	.bar {
+		background-color: rgba(255, 255, 255, 0.5);
+		/* width: 96%; */
+		margin: 1rem 2rem;
+		border-radius: 1rem;
+		padding: 2rem;
+		border: 2px solid var(--border);
+	}
+	.leaderboards {
+		overflow: auto;
+		height: 68vh;
+	}
+	.line {
+		padding: 1rem 2rem;
+		display: flex;
+		gap: 2rem;
+	}
+	.leaderboard {
+		height: 24rem;
+		overflow: auto;
+		flex: 32%;
+		padding: 2rem;
+		background-color: rgba(255, 255, 255, 0.5);
+		border-radius: 1rem;
+		border: 2px solid var(--border);
+	}
+	table {
+		padding-top: 1rem;
+		width: 100%;
+		text-align: left;
+	}
+	table,
+	th,
+	td {
+	}
+
+	.user {
+		display: flex;
+		align-items: center;
+	}
+
+	img {
+		border-radius: 9999px;
+		height: 2rem;
+		width: 2rem;
+		margin-right: 0.5rem;
+	}
+	th,
+	td {
+		/* display: inline-flex; */
+		align-items: center;
+		padding: 0.5rem 0.25rem;
+	}
+
+	::-webkit-scrollbar {
+		width: 0.5rem;
+	}
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: #aaaaaa;
+		border-radius: 1vh;
+		transition: 0.2s;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background-color: var(--red);
+	}
 </style>
