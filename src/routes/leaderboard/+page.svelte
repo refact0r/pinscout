@@ -357,6 +357,7 @@
 <style>
 	.content {
 		text-align: center;
+		padding-bottom: 2rem;
 	}
 	h1 {
 		margin: 2rem 0rem 0rem;
@@ -367,12 +368,12 @@
 		margin: 0;
 	}
 	.bar {
-		background-color: rgba(255, 255, 255, 0.5);
+		background-color: var(--bg-2);
 		/* width: 96%; */
 		margin: 1rem 2rem;
 		border-radius: 1rem;
 		padding: 2rem;
-		border: 2px solid var(--border);
+		border: 2px solid var(--bg-2);
 	}
 	.leaderboards {
 		overflow: auto;
@@ -388,9 +389,9 @@
 		overflow: auto;
 		flex: 32%;
 		padding: 2rem;
-		background-color: rgba(255, 255, 255, 0.5);
+		background-color: var(--bg-2);
 		border-radius: 1rem;
-		border: 2px solid var(--border);
+		border: 2px solid var(--bg-2);
 	}
 	table {
 		padding-top: 1rem;
