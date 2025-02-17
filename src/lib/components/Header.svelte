@@ -3,42 +3,46 @@
 	import Logo from './Logo.svelte';
 	import PinSmall from './PinSmall.svelte';
 
-	export let logged_in;
+	import {House, MapTrifold, Ranking, Gear, Info} from 'phosphor-svelte';
+
+	//export let logged_in;
 </script>
 
 <div class="position">
 	<div class="header">
 		<a href="/"><Logo /></a>
 		<div class="right">
-			{#if logged_in}
-				<a class="link" href="/dashboard">dashboard</a>
-			{:else}
-				<a class="link" href="/login">login</a>
-			{/if}
-			<a class="link" href="/settings">settings</a>
-			<a class="link" href="/about">about</a>
+			<a class="link" href="/"><House /></a>
+			<a class="link" href="/"><MapTrifold /></a>
+			<a class="link" href="/"><Ranking /></a>
+			<a class="link" href="/settings"><Gear /></a>
+			<a class="link" href="/about"><Info/></a>
 		</div>
 	</div>
 </div>
 
 <style>
 	.position {
-		width: 100vw;
+		width: 28rem;
 	}
 	.header {
 		margin: 1rem;
 		border-radius: 1rem;
-		padding: 1rem;
+		padding: .5rem .75rem;
 		background-color: rgba(255, 255, 255, 0.75);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		backdrop-filter: blur(4px);
-		font-size: 2.5rem;
+		font-size: 1.5rem;
+		transition: .2s;
+	}
+	.header:hover {
+		background-color: white;
 	}
 	.right {
 		display: flex;
-		gap: 2rem;
+		gap: 1rem;
 	}
 	a {
 		color: black;
@@ -48,5 +52,8 @@
 	}
 	a:hover {
 		color: rgb(234, 72, 78);
+	}
+	.link {
+		display: flex;
 	}
 </style>

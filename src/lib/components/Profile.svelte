@@ -14,25 +14,25 @@
 
 <div class="position">
 	<div class="header" on:click={()=>go()}>
-        <a>0 PP</a>
+        <a>0 PP&nbsp;</a>
 		<a><UserCircle /></a>
 	</div>
 </div>
 
 <style>
 	.position {
-		width: 12vw;
+		width: fit-content;
 	}
 	.header {
 		margin: 1rem;
 		border-radius: 1rem;
-		padding: 1rem;
+		padding: .5rem .75rem;
 		background-color: rgba(255, 255, 255, 0.75);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		backdrop-filter: blur(4px);
-		font-size: 2.5rem;
+		font-size: 1.5rem;
         color: black;
 		text-decoration: none;
         transition: .2s;

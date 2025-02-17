@@ -92,12 +92,12 @@
 			trackUserLocation: true,
 			showUserHeading: true
 		});
-		map.addControl(geolocate, 'bottom-right');
+		map.addControl(geolocate, 'right');
 		// add navigation control
 		const nav = new mapboxgl.NavigationControl({
 			visualizePitch: true
 		});
-		map.addControl(nav, 'bottom-right');
+		map.addControl(nav, 'right');
 
 		// turn on geolocation when map is loaded
 		map.on('load', () => {
@@ -118,14 +118,14 @@
 				container_height = 0;
 			} else {
 				map_height = 80;
-				container_height = 20;
+				container_height = 15;
 			}
 		} else if (pathname === '/dashboard') {
 			if (!logged_in) {
 				goto('/login');
 			} else {
 				map_height = 20;
-				container_height = 80;
+				container_height = 85;
 			}
 		} else if (
 			pathname === '/login' ||
@@ -134,7 +134,7 @@
 			pathname === '/about'
 		) {
 			map_height = 20;
-			container_height = 80;
+			container_height = 85;
 		} else {
 			map_height = 50;
 			container_height = 50;
@@ -151,7 +151,7 @@
 	<slot></slot>
 </div>
 <div class="position">
-	<Header {logged_in} />
+	<Header />
 </div>
 <div class="profile">
 	<Profile {logged_in} />
@@ -175,12 +175,10 @@
 		height: 100vh;
 	}
 	.container {
-		height: 20vh;
-		width: 90%;
-		max-width: 90%;
-		margin-left: 5%;
-		margin-right: 5%;;
-		padding: 1rem;
+		height: 15vh;
+		width: 98%;
+		margin: 0 1%;
+		padding: 1.5rem 1.25rem 1rem;
 		overflow: auto;
 		transition: height 0.5s ease;
 		position: absolute;
