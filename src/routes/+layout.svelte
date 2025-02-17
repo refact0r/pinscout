@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { page, navigating } from '$app/stores';
+	import { page } from '$app/stores';
 	import '../app.css';
 	import mapboxgl from 'mapbox-gl';
 	import 'mapbox-gl/dist/mapbox-gl.css';
@@ -22,9 +22,9 @@
 
 	let mapPins = [];
 
-	let logged_in;
-	let map_height;
-	let container_height;
+	let logged_in = $state(false);
+	let map_height = $state(80);
+	let container_height = $state(20);
 
 	function updateVisiblePins(map) {
 		const bounds = map.getBounds();
@@ -54,29 +54,6 @@
 
 		// default position in case geolocation fails
 		let userLocation = [-122.205, 47.613];
-
-		if ($page.url.pathname === "/") {
-			if (logged_in) {
-				map_height = 100;
-				container_height = 0;
-			} else {
-				map_height = 80;
-				container_height = 20;
-			}	
-		} else if ($page.url.pathname === "/dashboard") {
-			if (!logged_in) {
-				goto('/login');
-			} else {
-				map_height = 20;
-				container_height = 80;
-			}
-		} else if ($page.url.pathname === "/login" || $page.url.pathname === "/signup" || $page.url.pathname === "/settings" || $page.url.pathname === "/about") {
-			map_height = 20;
-			container_height = 80;
-		} else {
-			map_height = 50;
-			container_height = 50;
-		}
 
 		// get user location if possible
 		// try {
@@ -131,29 +108,30 @@
 		map.on('moveend', () => {
 			updateVisiblePins(map);
 		});
-
-		
 	});
 
-
-
-	function setComponentHeight(pathname){
-		if (pathname === "/") {
+	function setComponentHeight(pathname) {
+		if (pathname === '/') {
 			if (logged_in) {
 				map_height = 100;
 				container_height = 0;
 			} else {
 				map_height = 80;
 				container_height = 20;
-			}	
-		} else if (pathname === "/dashboard") {
+			}
+		} else if (pathname === '/dashboard') {
 			if (!logged_in) {
 				goto('/login');
 			} else {
 				map_height = 20;
 				container_height = 80;
 			}
-		} else if (pathname === "/login" || pathname === "/signup" || pathname === "/settings" || pathname === "/about") {
+		} else if (
+			pathname === '/login' ||
+			pathname === '/signup' ||
+			pathname === '/settings' ||
+			pathname === '/about'
+		) {
 			map_height = 20;
 			container_height = 80;
 		} else {
@@ -162,10 +140,12 @@
 		}
 	}
 
-	$: if($navigating) setComponentHeight($navigating.to.url.pathname);
+	$effect(() => {
+		setComponentHeight($page.url.pathname);
+	});
 </script>
 
-<div id="map" class="map" style="height: {map_height}vh;"></div>
+<div id="map" class="map"></div>
 <div class="container" style="height: {container_height}vh;">
 	<slot></slot>
 </div>
@@ -181,11 +161,18 @@
 	}
 	.map {
 		width: 100%;
+		height: 100vh;
 	}
 	.container {
 		height: 20vh;
 		width: 100%;
 		padding: 1rem;
 		overflow: auto;
+		transition: height 0.5s ease;
+		position: absolute;
+		bottom: 0;
+		z-index: 3;
+		background-color: white;
+		border-radius: 1rem 1rem 0 0;
 	}
 </style>
