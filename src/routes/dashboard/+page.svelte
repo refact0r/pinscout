@@ -33,6 +33,29 @@
 	<br>
 	<div class="dashboard">
 		<div class="stats">
+			<h2>Available Quests <Question /> : <div class="right">3</div></h2>
+			<div class="scrollbar">
+				<div class="substats">
+					<h3 class="quest">Weekly Quest 1: Weekly Upkeep<div class="right"><WarningCircle /></div></h3>
+					<h3 class="taut">Visit a pinned location and update its status.<div class="right"></div></h3>
+					<h3 class="taut">↪ PinPoint Reward: <div class="right">+{userState.user?.points}</div></h3>
+					<h3 class="taut">↪ Progress: <div class="right">0%</div></h3>
+					<h3 class="quest">Weekly Quest 2: Thought-Provoking<div class="right"><WarningCircle /></div></h3>
+					<h3 class="taut">Leave a review on two different pinned locations.<div class="right"></div></h3>
+					<h3 class="taut">↪ PinPoint Reward: <div class="right">+{userState.user?.points}</div></h3>
+					<h3 class="taut">↪ Progress: <div class="right">0%</div></h3>
+					<h3 class="quest">Weekly Quest 3: I, Moderator<div class="right"><WarningCircle /></div></h3>
+					<h3 class="taut">Leave an approval or dissapproval for three reviews from different locations.<div class="right"></div></h3>
+					<h3 class="taut">↪ PinPoint Reward: <div class="right">+{userState.user?.points}</div></h3>
+					<h3 class="taut">↪ Progress: <div class="right">0%</div></h3>
+					<h3 class="quest">Lifetime Quest 1: The More the Merrier<div class="right"><WarningCircle /></div></h3>
+					<h3 class="taut">Invite a friend with a referral code. <Question /> <div class="right"></div></h3>
+					<h3 class="taut">↪ PinPoint Reward: <div class="right">+{userState.user?.points}</div></h3>
+					<h3 class="taut">↪ Status: <div class="right">Ongoing</div></h3>
+				</div>
+			</div>
+		</div>
+		<div class="stats">
 			<h2>Total PinPoints <Question /> : <div class="right">{userState.user?.points}</div></h2>
 			<div class="scrollbar">
 				<div class="substats">
@@ -45,7 +68,8 @@
 					<h3 class="taut">↪ From Quests: <div class="right">+{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ From Location-Marking: <div class="right">+{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ From Reviews: <div class="right">+{userState.user?.points}</div></h3>
-					<h3 class="taut">↪ From Approvals: <div class="right">+{userState.user?.points}</div></h3>
+					<h3 class="taut">↪ From Approvals/Dissapprovals Given: <div class="right">+{userState.user?.points}</div></h3>
+					<h3 class="taut">↪ From Approvals Received: <div class="right">+{userState.user?.points}</div></h3>
 				</div>
 			</div>
 		</div>
@@ -66,26 +90,14 @@
 					<h3 class="taut">↪ Ranking: <div class="right">#1</div></h3>
 					<h3 class="taut">↪ Past Month: <div class="right">+{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ Past Year: <div class="right">+{userState.user?.points}</div></h3>
-					<h3>Total Approvals Given: <div class="right">{userState.user?.points}</div></h3>
+					<h3>Total Approvals/Dissaprovals Given: <div class="right">{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ Ranking: <div class="right">#1</div></h3>
 					<h3 class="taut">↪ Past Month: <div class="right">+{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ Past Year: <div class="right">+{userState.user?.points}</div></h3>
-				</div>
-			</div>
-		</div>
-		<div class="stats">
-			<h2>Quest Board <Question /> : <div class="right"></div></h2>
-			<div class="scrollbar">
-				<div class="substats">
-					<h3 class="quest">Weekly Quest 1: Weekly Upkeep<div class="right"><WarningCircle /></div></h3>
-					<h3 class="taut">Visit a pinned location and update its status.<div class="right"></div></h3>
-					<h3 class="taut">↪ PinPoint Reward: <div class="right">+{userState.user?.points}</div></h3>
-					<h3 class="quest">Weekly Quest 2: Thought-Provoking<div class="right"><WarningCircle /></div></h3>
-					<h3 class="taut">Leave a review on a pinned location.<div class="right"></div></h3>
-					<h3 class="taut">↪ PinPoint Reward: <div class="right">+{userState.user?.points}</div></h3>
-					<h3 class="quest">Lifetime Quest 1: The More the Merrier<div class="right"><WarningCircle /></div></h3>
-					<h3 class="taut">Invite a friend with a referral code. <Question /> <div class="right"></div></h3>
-					<h3 class="taut">↪ PinPoint Reward: <div class="right">+{userState.user?.points}</div></h3>
+					<h3>Total Approvals/Dissapprovals Received: <div class="right">{userState.user?.points}</div></h3>
+					<h3 class="taut">↪ Ranking: <div class="right">#1</div></h3>
+					<h3 class="taut">↪ Past Month: <div class="right">+{userState.user?.points}</div></h3>
+					<h3 class="taut">↪ Past Year: <div class="right">+{userState.user?.points}</div></h3>
 				</div>
 			</div>
 		</div>
@@ -117,7 +129,7 @@
 		gap: 2%;
 	}
 	.stats {
-		background-color: rgb(123, 195, 222);
+		background-color: rgba(255,255,255,.5);
 		border-radius: 1vw;
 		padding: 2vh 2vw;
 		flex: 32%;
