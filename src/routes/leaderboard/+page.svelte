@@ -35,7 +35,7 @@
 	<div class="leaderboards">
 		<div class="bar">
 			<h2 style="font-size: 2.5rem;">Seasonal Leaderboards</h2>
-			<p>Time Left This Season <Question /> : 00d 00h 00m 00s</p>
+			<p>Time Left This Season Before Reset: 00d 00h 00m 00s</p>
 		</div>
 		<div class="line">
 			<div class="leaderboard">
@@ -92,7 +92,7 @@
 			</div>
 			<div class="leaderboard">
 				<h2>Most Statuses Updated</h2>
-				<p>Prize: Title "Y1 Spring - Avid PinPoint Collector"</p>
+				<p>Prize: Title "Y1 Spring - Upkeep King"</p>
 				<table>
 					<thead>
 						<tr>
