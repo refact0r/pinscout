@@ -118,7 +118,7 @@
 		if (pathname === '/') {
 			if (logged_in) {
 				map_height = 100;
-				container_height = 0;
+				container_height = 8;
 			} else {
 				map_height = 80;
 				container_height = 16;
@@ -181,8 +181,8 @@
 		height: 16vh;
 		width: 98vw;
 		margin: 0 1vw;
-		padding: 0rem 1.25rem;
-		overflow: auto;
+		padding: 1rem 1rem;
+		overflow: hidden;
 		transition: height 0.5s ease;
 		position: absolute;
 		bottom: 0;
