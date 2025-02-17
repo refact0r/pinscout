@@ -11,7 +11,8 @@ export const getUser = async () => {
 		if (page.url.pathname === '/login') {
 			goto('/');
 		}
-		return user.data.user;
+		const { data } = await supabase.from('profiles').select().eq('id', user.data.user.id);
+		return data[0];
 	} else {
 		return null;
 	}

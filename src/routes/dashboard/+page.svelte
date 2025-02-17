@@ -1,4 +1,5 @@
 <script>
+	import { userState } from '$lib/state.svelte';
 </script>
 
 <div class="content">
@@ -6,9 +7,9 @@
 		<h1>Your Dashboard</h1>
 		<div class="stats">
 			<div class="greeting">
-				<p>Good _, User.</p>
+				<p>Good _, {userState.user?.name}.</p>
 			</div>
-			<div class="points"></div>
+			<div class="points">{userState.user?.points} PP</div>
 		</div>
 	</div>
 </div>
@@ -19,7 +20,7 @@
 	.dashboard {
 		background-color: rgb(123, 195, 222);
 		border-radius: 1vw;
-        padding: 2vh 2vw;
+		padding: 2vh 2vw;
 	}
 	.stats {
 		display: flex;

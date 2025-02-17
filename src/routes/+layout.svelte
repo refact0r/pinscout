@@ -52,8 +52,6 @@
 
 		if (userState.user) {
 			logged_in = true;
-		} else {
-			logged_in = false;
 		}
 
 		// default position in case geolocation fails
@@ -184,7 +182,7 @@
 		width: 90%;
 		max-width: 90%;
 		margin-left: 5%;
-		margin-right: 5%;;
+		margin-right: 5%;
 		padding: 1rem;
 		overflow: auto;
 		transition: height 0.5s ease;

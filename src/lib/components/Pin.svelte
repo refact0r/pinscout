@@ -1,16 +1,20 @@
 <script>
+	import { Toilet } from 'phosphor-svelte';
+
 	let { type } = $props();
 	const colorMap = {
-		restroom: 'green',
+		restroom: 'red',
 		food: 'green',
 		drink: 'blue',
 		shop: 'yellow',
 		other: 'purple'
 	};
-	const iconMap = {};
+	const iconMap = {
+		restroom: Toilet
+	};
 </script>
 
-<div class="icon" style="--color: {colorMap[type]}">
+<div class="marker" style="--color: {colorMap[type]}">
 	<svg
 		id="Layer_1"
 		data-name="Layer 1"
@@ -34,12 +38,20 @@
 		/>
 		<circle class="cls-2" cx="34.67" cy="34.58" r="27.11" />
 	</svg>
+	<div class="icon">
+		<svelte:component this={iconMap[type]} size="18px" />
+	</div>
 </div>
 
 <style>
-	.icon {
+	.marker {
 		height: 100%;
 		width: 32px;
 		color: var(--color);
+	}
+	.icon {
+		position: absolute;
+		top: 7px;
+		left: 7px;
 	}
 </style>
