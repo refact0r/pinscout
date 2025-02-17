@@ -1,13 +1,14 @@
+// src/routes/pin/[slug]/+page.server.js
 import { supabase } from '$lib/supabaseClient';
 
 export async function load({ params }) {
-	const { data: reviews, error } = await supabase
+	const { data: reviews, reviewError } = await supabase
 		.from('reviews')
 		.select('*')
 		.eq('pin_id', params.slug);
 
-	if (error) {
-		console.error('Failed to fetch reviews:', error);
+	if (reviewError) {
+		console.error('Failed to fetch reviews:', reviewError);
 		return {
 			reviews: []
 		};
