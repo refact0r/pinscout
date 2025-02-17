@@ -16,18 +16,18 @@
 
 <style>
 	.position {
-		width: 12vw;
+		width: fit-content;
 	}
 	.header {
 		margin: 1rem;
 		border-radius: 1rem;
-		padding: 1rem;
+		padding: 0.5rem 0.75rem;
 		background-color: rgba(255, 255, 255, 0.75);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		backdrop-filter: blur(4px);
-		font-size: 2.5rem;
+		font-size: 1.5rem;
 		color: black;
 		text-decoration: none;
 		transition: 0.2s;
