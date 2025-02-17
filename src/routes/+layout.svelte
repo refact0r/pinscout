@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { navigating } from '$app/stores';
 	import '../app.css';
 	import mapboxgl from 'mapbox-gl';
 	import 'mapbox-gl/dist/mapbox-gl.css';
@@ -20,6 +21,8 @@
 
 	let mapPins = [];
 
+	let logged_in;
+
 	function updateVisiblePins(map) {
 		const bounds = map.getBounds();
 
@@ -39,6 +42,12 @@
 	onMount(async () => {
 		// check and get auth user
 		userState.user = await getUser();
+
+		if (userState.user) {
+			logged_in = true;
+		} else {
+			logged_in = false;
+		}
 
 		// default position in case geolocation fails
 		let userLocation = [-122.205, 47.613];
@@ -97,14 +106,40 @@
 			updateVisiblePins(map);
 		});
 	});
+
+	let map_height = 80;
+	let container_height = 20;
+
+	function setComponentHeight(pathname){
+		if (pathname === "/") {
+			if (logged_in) {
+				map_height = 100;
+				container_height = 0;
+			} else {
+				map_height = 80;
+				container_height = 20;
+			}	
+		} else if (pathname === "/dashboard") {
+			map_height = 0;
+			container_height = 100;
+		} else if (pathname === "/login" || pathname === "/signup" || pathname === "/settings" || pathname === "/about") {
+			map_height = 20;
+			container_height = 80;
+		} else {
+			map_height = 50;
+			container_height = 50;
+		}
+	}
+
+	$: if($navigating) setComponentHeight($navigating.to.url.pathname);
 </script>
 
-<div id="map" class="map"></div>
-<div class="container">
+<div id="map" class="map" style="height: {map_height}vh;"></div>
+<div class="container" style="height: {container_height}vh;">
 	<slot></slot>
 </div>
 <div class="position">
-	<Header />
+	<Header {logged_in} />
 </div>
 
 <style>
@@ -115,7 +150,6 @@
 	}
 	.map {
 		width: 100%;
-		height: 80vh;
 	}
 	.container {
 		height: 20vh;

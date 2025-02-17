@@ -3,14 +3,14 @@
 	import Logo from './Logo.svelte';
 	import PinSmall from './PinSmall.svelte';
 
-	let x = true;
+	export let logged_in;
 </script>
 
 <div class="position">
 	<div class="header">
 		<a href="/"><Logo /></a>
 		<div class="right">
-			{#if x}
+			{#if logged_in}
 				<a class="link" href="/dashboard">dashboard</a>
 			{:else}
 				<a class="link" href="/login">login</a>
