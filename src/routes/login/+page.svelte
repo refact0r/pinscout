@@ -1,30 +1,48 @@
 <script>
 	import { userState } from '$lib/state.svelte';
 	import { login } from '$lib/supabaseClient';
+
+	import {GoogleLogo} from 'phosphor-svelte';
 </script>
 
 <div class="box">
 	<h1>Login</h1>
-	<button on:click={login}> Login with Google </button>
+	<button on:click={login} title="Login with Google">
+		<a>Login with Google</a>
+	</button>
 	<br><br>
-	<p>Login to pinscout to mark new locations, place reviews, and earn points among other things.</p>
+	<p>Login to pinscout to mark new locations, place reviews, earn pinpoints, and more!</p>
 </div>
 
 <style>
 	.box{
-		width: 30vw;
-		height: 70vh;
-		max-width: 40vw;
-		margin-top: 2vh;
+		width: 20rem;
 		margin-left: auto;
 		margin-right: auto;
-		background-color: rgb(123, 195, 222);
-		border-radius: 1vw;
-        padding: 2vh 2vw;
+		text-align: center;
 	}
 
 	button {
 		width: 100%;
-		height: 6vh;
+		height: 7vh;
+		font-family: 'Urbanist', serif;
+		text-align:center;
+		align-content: center;
+		align-items: center;
+		font-size: 1rem;
+		border: none;
+		border-radius: 1rem;
+		color: black;
+		background-color: white;
+		transition: .2s;
 	}
+	button:hover {
+		color: white;
+		background-color: rgb(234, 72, 78);
+	}
+
+	h1 {
+        margin: 2rem 0rem;
+        font-size: 4rem;
+    }
 </style>

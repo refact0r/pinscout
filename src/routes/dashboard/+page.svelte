@@ -16,6 +16,7 @@
 
 <style>
 	.content {
+        width: 100%;
 	}
 	.dashboard {
 		background-color: rgb(123, 195, 222);

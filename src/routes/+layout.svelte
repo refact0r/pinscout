@@ -128,7 +128,7 @@
 				goto('/login');
 			} else {
 				map_height = 20;
-				container_height = 85;
+				container_height = 89;
 			}
 		} else if (
 			pathname === '/login' ||
@@ -137,7 +137,7 @@
 			pathname === '/about'
 		) {
 			map_height = 20;
-			container_height = 85;
+			container_height = 89;
 		} else {
 			map_height = 50;
 			container_height = 50;
@@ -179,9 +179,9 @@
 	}
 	.container {
 		height: 16vh;
-		width: 98%;
-		margin: 0 1%;
-		padding: 1.5rem 1.25rem 1rem;
+		width: 98vw;
+		margin: 0 1vw;
+		padding: 0rem 1.25rem;
 		overflow: auto;
 		transition: height 0.5s ease;
 		position: absolute;

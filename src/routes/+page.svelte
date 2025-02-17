@@ -18,7 +18,7 @@
         <a class="a"><WarningCircle /></a>
         <a class="a">Not Logged In</a>
     </div>
-	<p>Login to mark new locations, place reviews, earn pinpoints, and more!&nbsp;&nbsp;<a class="link" href="/login">Login<ArrowSquareOut/></a></p>
+	<p>Login to mark new locations, place reviews, earn pinpoints, and more!&nbsp;&nbsp;<a class="link" href="/login" title="Login">Login<ArrowSquareOut/></a></p>
 {/if}
 
 <style>
@@ -27,6 +27,7 @@
         gap: .25rem;
         align-items: center;
 		font-size: 1.2rem;
+        padding-top:1.5rem;
     }
     .a{
         align-items: center;
