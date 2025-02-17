@@ -11,7 +11,7 @@
 			<div>{userState.user?.points} PP</div>
 			<div class="avatar">
 				<img src={userState.user?.avatar_url} />
-				<UserCircle size="2rem" />
+				<UserCircle />
 			</div>
 		</a>
 	</div>
@@ -45,14 +45,14 @@
 		display: flex;
 	}
 	.avatar {
-		width: 2rem;
-		height: 2rem;
+		width: 1.5rem;
+		height: 1.5rem;
 		position: relative;
 	}
 
 	.avatar * {
-		width: 2rem;
-		height: 2rem;
+		width: 1.5rem;
+		height: 1.5rem;
 		border-radius: 9999px;
 		position: absolute;
 		top: 0;

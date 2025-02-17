@@ -16,7 +16,7 @@
 	}
 	.pin {
 		font-size: 0;
-		height: 2rem;
+		height: 1.5rem;
 		color: red;
 	}
 </style>
