@@ -1,8 +1,13 @@
 <script>
-	import { userState } from '$lib/state.svelte';
+	import { goto } from '$app/navigation';
+	import { selectedPin, userState } from '$lib/state.svelte';
 	import { logout } from '$lib/supabaseClient';
 
 	import { WarningCircle, ArrowSquareOut } from 'phosphor-svelte';
+
+	if (selectedPin.pin) {
+		goto(`/pin/${selectedPin.pin}`);
+	}
 </script>
 
 <svelte:head>
