@@ -5,3 +5,7 @@ body {
 
 	font-family: 'Urbanist', serif;
 }
+
+* {
+	box-sizing: border-box;
+}
