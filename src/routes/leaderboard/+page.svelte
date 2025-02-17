@@ -1,23 +1,97 @@
+<script>
+    import {Question} from 'phosphor-svelte';
+</script>
+
 <svelte:head>
-	<title>leaderboard</title>
+	<title>leaderboards</title>
 </svelte:head>
 
 <div class="content">
-    <h1>Leaderboard</h1>
+    <h1>Leaderboards</h1>
     <div class="leaderboards">
-        <p>This year's prize: A digital high-five!</p>
+
+        <div class="bar">
+            <h2 style="font-size: 2.5rem; margin-top:1rem;">Seasonal Leaderboards</h2>
+            <p>Time Left This Season <Question /> : 00d 00h 00m 00s</p>
+        </div>
         <div class="line">
             <div class="leaderboard">
-                <h2>Most PinPoints</h2>
+                <h2>Most PinPoints Earned</h2>
+                <p>Prize: Title "Y1 Spring - Avid PinPoint Collector"</p>
                 <table>
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>#</th>
+                            <th>Username</th>
                             <th>Pinpoints</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
                             <td>Placeholder</td>
                             <td>100000</td>
                         </tr>
@@ -25,40 +99,1176 @@
                 </table>
             </div>
             <div class="leaderboard">
-                <h2>Most Verified Locations Marked</h2>
+                <h2>Most Locations Reviewed</h2>
+                <p>Prize: Title "Y1 Spring - The Outspoken One"</p>
                 <table>
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>#</th>
+                            <th>Username</th>
                             <th>Locations</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>1</td>
                             <td>Placeholder</td>
                             <td>100</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="leaderboard">
-                <h2>Most Locations Visited</h2>
+                <h2>Most Statuses Updated</h2>
+                <p>Prize: Title "Y1 Spring - Avid PinPoint Collector"</p>
                 <table>
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Pinpoints</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>            
+        </div>
+        <div class="line">
+            <div class="leaderboard">
+                <h2>Most Dis/Approvals Given</h2>
+                <p>Prize: Title "Y1 Spring - A Redditor?"</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
                             <th>Locations</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>1</td>
                             <td>Placeholder</td>
                             <td>100</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="leaderboard">
+                <h2>Most Approvals Received</h2>
+                <p>Prize: Title "Y1 Spring - Acclaimed Critic"</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Locations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="leaderboard">
+                <h2>Most Disapprovals Received</h2>
+                <p>Prize: Season ban from ability to review</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Locations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+
+        <div class="bar">
+            <h2 style="font-size: 2.5rem; margin-top:1rem;">Lifetime Leaderboards</h2>
+            <p>No resets, no prizes (except bragging rights)</p>
+        </div>
+        <div class="line">
+            <div class="leaderboard">
+                <h2 style="margin-bottom: 1rem;">Most PinPoints Earned</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Pinpoints</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="leaderboard">
+                <h2 style="margin-bottom: 1rem;">Most Verified Locations Marked</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Locations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="leaderboard">
+                <h2 style="margin-bottom: 1rem;">Most Weekly Quests Completed</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Locations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+        <div class="line">
+            <div class="leaderboard">
+                <h2 style="margin-bottom:1rem;">Most Locations Reviewed</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Locations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="leaderboard">
+                <h2 style="margin-bottom:1rem;">Most Statuses Updated</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Pinpoints</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+            <div class="leaderboard">
+                <h2 style="margin-bottom:1rem;">Most Friends Invited</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Pinpoints</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>           
+        </div>
+        <div class="line">
+            <div class="leaderboard">
+                <h2 style="margin-bottom:1rem;">Most Dis/Approvals Given</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Locations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="leaderboard">
+                <h2 style="margin-bottom:1rem;">Most Approvals Received</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Locations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="leaderboard">
+                <h2 style="margin-bottom:1rem;">Most Disapprovals Received</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Locations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Placeholder</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Placeholder</td>
+                            <td>100000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+            
+        
         
     </div>
 </div>
@@ -71,24 +1281,55 @@
         margin: 2rem 0rem 0rem;
         font-size: 4rem;
     }
+    h2 {
+        margin-bottom: -1rem;
+    }
+    .bar{
+        background-color: rgba(255,255,255,.5);
+        width: 96%;
+        margin: 0 2%;
+        border-radius: 1rem;
+    }
     .leaderboards{
         overflow: auto;
+        height: 68vh;
     }
     .line{
+        padding: 0 2rem 2rem;
         display:flex;
-        gap: 5%;
+        gap: 2%;
     }
     .leaderboard{
-        height: 60vh;
+        height: 28rem;
         overflow: auto;
-        flex: 30%;
+        flex: 32%;
         padding: 0rem 2rem;
+        background-color: rgba(255,255,255,.5);
+        border-radius: 1rem;
     }
     table{
         width: 100%;
         text-align: left;
     }
-    tr{
-        width: 50%;
+    table, th, td{
+        border: .1rem black solid;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: .25rem;
+    }
+    ::-webkit-scrollbar {
+        width: .5rem;
+    }
+    ::-webkit-scrollbar-track {
+        background: rgb(0,0,0,0);
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: black;
+        border-radius: 1vh;
+		transition: .2s;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: rgb(234, 72, 78);
     }
 </style>
