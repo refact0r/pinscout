@@ -7,10 +7,10 @@
 
 <div class="position">
 	<a class="header" href="/dashboard">
-		<div>{userState.user ? userState.user.points : 0} PP</div>
+		<div>{logged_in ? userState.user?.points : 0} PP</div>
 		<div class="avatar">
-			{#if userState.user}
-				<img src={userState.user.avatar_url} />
+			{#if logged_in}
+				<img src={userState.user?.avatar_url} alt=""/>
 			{/if}
 			<UserCircle size="2rem" />
 		</div>
