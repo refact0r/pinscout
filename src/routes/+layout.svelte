@@ -20,7 +20,6 @@
 	let mapPins = [];
 
 	let logged_in = $state(false);
-	let container_height = $state(20);
 
 	let pageHidden = $state(true);
 	let pageFull = $state(false);
@@ -36,7 +35,10 @@
 		data.pins.forEach((pin) => {
 			if (bounds.contains([pin.longitude, pin.latitude])) {
 				const ref = document.createElement('div');
-				mount(Pin, { target: ref, props: { type: pin.type, subtype: pin.subtype } });
+				mount(Pin, {
+					target: ref,
+					props: { type: pin.type, subtype: pin.subtype, pin_id: pin.id }
+				});
 				const marker = new mapboxgl.Marker({ element: ref, anchor: 'bottom' })
 					.setLngLat([pin.longitude, pin.latitude])
 					.addTo(map);
@@ -150,8 +152,8 @@
 	<div class="header-container">
 		<Header />
 	</div>
-	<div class="page box" class:hidden={pageHidden} class:full={pageFull}>
-		{@render children()}
+	<div class="page-container box" class:hidden={pageHidden} class:full={pageFull}>
+		{@render children({ data })}
 	</div>
 	<div class="profile-container">
 		<Profile {logged_in} />
@@ -185,7 +187,7 @@
 		grid-area: 1 / 3 / 2 / 5;
 		z-index: 1;
 	}
-	.page {
+	.page-container {
 		grid-area: 2 / 1 / 3 / 5;
 		width: 30%;
 		min-width: 35rem;
