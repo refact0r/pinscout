@@ -114,7 +114,7 @@
 				{#if quests_popup}
 					<div class="popuptext" style="position:absolute; left:{x * 0.65}px; top: {y}px;">
 						<span
-							>Quests are tasks given to users to help improve pinscout's services in exchange for
+							>Quests are tasks given to users to help improve pinScout's services in exchange for
 							PinPoints. Weekly quests have a cooldown after completion and refresh every week,
 							while lifetime quests have no cooldown and can be completed infinitely.</span
 						>
@@ -204,7 +204,7 @@
 					<div class="popuptext" style="position:absolute; left:{x * 0.85}px; top: {y}px;">
 						<span
 							>PinPoints are a form of digital currency that is given as a reward to users who
-							contribute to the pinscout platform. PinPoints can be spent in the shop (coming soon).</span
+							contribute to the pinScout platform. PinPoints can be spent in the shop (coming soon).</span
 						>
 					</div>
 				{/if}
