@@ -6,6 +6,8 @@
 	import { getUser } from '$lib/supabaseClient';
 	import { userState } from '$lib/state.svelte';
 
+	import Header from '../routes/Header.svelte';
+
 	mapboxgl.accessToken =
 		'pk.eyJ1IjoicmVmYWN0MHIiLCJhIjoiY203ODZndDB3MHI4bTJrcHVpcDl0a2NjYiJ9.oFH9TjRqRRobGDri9dbmfA';
 
@@ -97,12 +99,22 @@
 	});
 </script>
 
+
 <div id="map" class="map"></div>
 <div class="container">
 	<slot></slot>
 </div>
+<div class="position">
+	<Header />
+</div>
 
 <style>
+	.position {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		z-index: 9;
+	}
 	.map {
 		width: 100%;
 		height: 50vh;
