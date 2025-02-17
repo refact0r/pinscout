@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
+	import { mount, onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import '../app.css';
 	import mapboxgl from 'mapbox-gl';
@@ -9,6 +9,7 @@
 
 	import Header from '../lib/components/Header.svelte';
 	import { goto } from '$app/navigation';
+	import Pin from '$lib/components/Pin.svelte';
 
 	mapboxgl.accessToken =
 		'pk.eyJ1IjoicmVmYWN0MHIiLCJhIjoiY203ODZndDB3MHI4bTJrcHVpcDl0a2NjYiJ9.oFH9TjRqRRobGDri9dbmfA';
@@ -36,7 +37,9 @@
 		// add only pins that are within the current bounds
 		pins.forEach((markerCoords) => {
 			if (bounds.contains(markerCoords)) {
-				const marker = new mapboxgl.Marker().setLngLat(markerCoords).addTo(map);
+				const ref = document.createElement('div');
+				mount(Pin, { target: ref, props: { type: 'restroom' } });
+				const marker = new mapboxgl.Marker(ref).setLngLat(markerCoords).addTo(map);
 				mapPins.push(marker);
 			}
 		});
@@ -108,6 +111,8 @@
 		map.on('moveend', () => {
 			updateVisiblePins(map);
 		});
+
+		map.on('click', (e) => {});
 	});
 
 	function setComponentHeight(pathname) {
