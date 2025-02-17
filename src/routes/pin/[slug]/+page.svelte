@@ -7,27 +7,31 @@
 	import { PUBLIC_SUPABASE_URL } from '$env/static/public';
 	import { colorMap } from '$lib/utils';
 	import { get } from 'svelte/store';
+	import { onMount } from 'svelte';
 
 	let { data, form } = $props();
 	let images = $state([]);
 
-	let pin = $state(data.pins.find((pin) => String(pin.id) === data.id));
+	let pin = $state(data.pins?.find((pin) => String(pin.id) === data.id) || null);
 	$effect(() => {
-		pin = data.pins.find((pin) => String(pin.id) === data.id);
+		pin = data.pins?.find((pin) => String(pin.id) === data.id) || null;
 		selectedPin.pin = data.id;
 	});
 
 	let fileInput;
 	let uploadError = $state('');
 	let imagePath;
-
-	getImages();
+	$effect(async () => {
+		await getImages();
+	});
 
 	async function getImages() {
+		if (!pin) return;
+
 		const { data: newImages, error: imageError } = await supabase
 			.from('images')
 			.select('*')
-			.eq('pin_id', data.id);
+			.eq('pin_id', pin.id);
 
 		if (imageError) {
 			console.error('Failed to refresh images:', imageError);
