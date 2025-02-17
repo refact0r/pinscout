@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>pinscout</title>
+	<title>pinScout</title>
 </svelte:head>
 
 <!--This first case of if statement is useless since container size will be 0 if user is logged in, user can logout through dashboard-->

@@ -1,6 +1,7 @@
 <script>
 	import { userState } from '$lib/state.svelte';
 	import { onMount } from 'svelte';
+	import X from 'phosphor-svelte/lib/X';
 
 	import { WarningCircle, Question } from 'phosphor-svelte';
 
@@ -28,6 +29,9 @@
 </svelte:head>
 
 <div class="content">
+	<div class="top">
+		<a href="/"><X size="1.5rem" /></a>
+	</div>
 	<h1>Your Dashboard</h1>
 	<p class="greeting">Good {greeting}, {userState.user?.name}.</p>
 	<br />
@@ -217,13 +221,18 @@
 </div>
 
 <style>
+	.top {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+	}
 	.content {
-		width: 100%;
-		text-align: center;
+		padding: 2rem;
+		position: relative;
 	}
 	h1 {
-		margin: 2rem 0rem 0rem;
-		font-size: 4rem;
+		margin: 1rem 0;
+		font-size: 3rem;
 	}
 	h2 {
 		font-size: 2rem;
@@ -236,7 +245,6 @@
 		font-weight: 700;
 	}
 	.dashboard {
-		padding: 0rem 2rem;
 		display: flex;
 		gap: 2%;
 	}

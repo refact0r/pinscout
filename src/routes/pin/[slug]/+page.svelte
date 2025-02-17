@@ -132,9 +132,9 @@
 <div class="page">
 	<div class="top">
 		<div class="tags">
-			<span class="tag" style="--color: {colorMap[pin.type]}">{pin.type}</span>
+			<span class="tag" style="--color: {colorMap[pin.type] || '#333'}">{pin.type}</span>
 			{#if pin.name.length > 0}
-				<span class="tag" style="--color: {colorMap[pin.type]}">{pin.subtype}</span>
+				<span class="tag" style="--color: {colorMap[pin.type] || '#333'}">{pin.subtype}</span>
 			{/if}
 		</div>
 		<a href="/" onclick={() => (selectedPin.pin = null)}><X size="1.5rem" /></a>
