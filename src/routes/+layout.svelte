@@ -5,7 +5,7 @@
 	import mapboxgl from 'mapbox-gl';
 	import 'mapbox-gl/dist/mapbox-gl.css';
 	import { getUser } from '$lib/supabaseClient';
-	import { userState } from '$lib/state.svelte';
+	import { userState, pinState } from '$lib/state.svelte';
 
 	import Header from '../lib/components/Header.svelte';
 	import Profile from '$lib/components/Profile.svelte';
@@ -17,7 +17,7 @@
 
 	import X from 'phosphor-svelte/lib/X';
 
-	let { children, data } = $props();
+	let { children } = $props();
 
 	mapboxgl.accessToken =
 		'pk.eyJ1IjoicmVmYWN0MHIiLCJhIjoiY203ODZndDB3MHI4bTJrcHVpcDl0a2NjYiJ9.oFH9TjRqRRobGDri9dbmfA';
@@ -42,7 +42,7 @@
 		mapPins = [];
 
 		// add only pins that are within the current bounds
-		data.pins.forEach((pin) => {
+		pinState.pins.forEach((pin) => {
 			if (bounds.contains([pin.longitude, pin.latitude])) {
 				const ref = document.createElement('div');
 				mount(Pin, {
@@ -55,6 +55,14 @@
 				mapPins.push(marker);
 			}
 		});
+	}
+
+	async function getPins() {
+		const { data: newPins, error } = await supabase.from('pins').select('*');
+		if (error) {
+			console.error('Failed to fetch pins:', error.message);
+		}
+		pinState.pins = newPins || [];
 	}
 
 	onMount(async () => {
@@ -140,6 +148,8 @@
 			element: ref,
 			anchor: 'bottom'
 		});
+
+		await getPins();
 	});
 
 	function togglePlacingMode() {
@@ -238,7 +248,7 @@
 		<Header />
 	</div>
 	<div class="page-container box" class:hidden={pageHidden} class:full={pageFull}>
-		{@render children({ data, confirmPlacement, cancelPlacement })}
+		{@render children()}
 	</div>
 	<div class="profile-container">
 		<Profile {logged_in} />
