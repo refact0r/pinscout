@@ -3,6 +3,8 @@
 	import '../app.css';
 	import mapboxgl from 'mapbox-gl';
 	import 'mapbox-gl/dist/mapbox-gl.css';
+	import { getUser } from '$lib/supabaseClient';
+	import { userState } from '$lib/state.svelte';
 
 	mapboxgl.accessToken =
 		'pk.eyJ1IjoicmVmYWN0MHIiLCJhIjoiY203ODZndDB3MHI4bTJrcHVpcDl0a2NjYiJ9.oFH9TjRqRRobGDri9dbmfA';
@@ -33,6 +35,9 @@
 	}
 
 	onMount(async () => {
+		// check and get auth user
+		userState.user = await getUser();
+
 		// default position in case geolocation fails
 		let userLocation = [-122.205, 47.613];
 
@@ -93,11 +98,17 @@
 </script>
 
 <div id="map" class="map"></div>
-<slot></slot>
+<div class="container">
+	<slot></slot>
+</div>
 
 <style>
 	.map {
 		width: 100%;
-		height: 100%;
+		height: 50vh;
+	}
+	.container {
+		height: 50vh;
+		width: 100%;
 	}
 </style>
