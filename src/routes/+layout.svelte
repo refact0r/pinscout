@@ -8,6 +8,7 @@
 	import { userState } from '$lib/state.svelte';
 
 	import Header from '../lib/components/Header.svelte';
+	import Profile from '$lib/components/Profile.svelte';
 	import { goto } from '$app/navigation';
 
 	mapboxgl.accessToken =
@@ -152,6 +153,9 @@
 <div class="position">
 	<Header {logged_in} />
 </div>
+<div class="profile">
+	<Profile {logged_in} />
+</div>
 
 <style>
 	.position {
@@ -159,20 +163,31 @@
 		top: 0;
 		z-index: 9;
 	}
+	.profile {
+		position: absolute;
+		top: 0;
+		left: auto;
+		right: 0;
+		z-index: 10;
+	}
 	.map {
 		width: 100%;
 		height: 100vh;
 	}
 	.container {
 		height: 20vh;
-		width: 100%;
+		width: 90%;
+		max-width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;;
 		padding: 1rem;
 		overflow: auto;
 		transition: height 0.5s ease;
 		position: absolute;
 		bottom: 0;
 		z-index: 3;
-		background-color: white;
+		background-color: rgba(255, 255, 255, 0.8);
+		backdrop-filter: blur(4px);
 		border-radius: 1rem 1rem 0 0;
 	}
 </style>
