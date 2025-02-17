@@ -204,7 +204,7 @@
 					<div class="popuptext" style="position:absolute; left:{x * 0.85}px; top: {y}px;">
 						<span
 							>PinPoints are a form of digital currency that is given as a reward to users who
-							contribute to the pinscout platform. PinPoints can be spent in the shop.</span
+							contribute to the pinscout platform. PinPoints can be spent in the shop (coming soon).</span
 						>
 					</div>
 				{/if}
@@ -228,7 +228,7 @@
 				</h2>
 				<div class="scrollbar">
 					<div class="substats">
-						<h3>Spend your PinPoints here: <a href="/shop">shop<ArrowSquareOut /></a></h3>
+						<!--<h3>Spend your PinPoints here: <a href="/shop">shop<ArrowSquareOut /></a></h3>-->
 						<h3>PinPoints Gained:</h3>
 						<h3 class="taut">
 							↪ Past Week: <div class="right">+{userState.user?.points}</div>
@@ -240,13 +240,13 @@
 							↪ This Season: <div class="right">+{userState.user?.points}</div>
 						</h3>
 						<h3 class="taut">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↪ Ranking: <div class="right">#{userState.user?.pp_ranking}</div>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↪ Ranking: <div class="right">#{pp_ranking}</div>
 						</h3>
 						<h3>
 							Lifetime PinPoints Gained: <div class="right">{userState.user?.points}</div>
 						</h3>
 						<h3 class="taut">
-							↪ Ranking: <div class="right">#{userState.user?.pp_ranking}</div>
+							↪ Ranking: <div class="right">#{pp_ranking}</div>
 						</h3>
 						<h3 class="taut">
 							↪ From Quests: <div class="right">+{userState.user?.points}</div>
@@ -278,7 +278,7 @@
 							Total Quests Completed: <div class="right">{userState.user?.quests_completed}</div>
 						</h3>
 						<h3 class="taut">
-							↪ Ranking: <div class="right">#{userState.user?.quests_ranking}</div>
+							↪ Ranking: <div class="right">#{quests_ranking}</div>
 						</h3>
 						<h3>
 							Total Verified Locations Marked: <div class="right">
@@ -286,31 +286,31 @@
 							</div>
 						</h3>
 						<h3 class="taut">
-							↪ Ranking: <div class="right">#{userState.user?.locations_ranking}</div>
+							↪ Ranking: <div class="right">#{locations_ranking}</div>
 						</h3>
 						<h3>
 							Total Reviews Left: <div class="right">{userState.user?.num_reviews}</div>
 						</h3>
 						<h3 class="taut">
-							↪ Ranking: <div class="right">#{userState.user?.reviews_ranking}</div>
+							↪ Ranking: <div class="right">#{reviews_ranking}</div>
 						</h3>
 						<h3 class="taut">
 							↪ This Season: <div class="right">+{userState.user?.num_reviews}</div>
 						</h3>
 						<h3 class="taut">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↪ Ranking: <div class="right">#{userState.user?.reviews_ranking}</div>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↪ Ranking: <div class="right">#{reviews_ranking}</div>
 						</h3>
 						<h3>
 							Total Statuses Updated: <div class="right">{userState.user?.status_updates}</div>
 						</h3>
 						<h3 class="taut">
-							↪ Ranking: <div class="right">#{userState.user?.status_ranking}</div>
+							↪ Ranking: <div class="right">#{status_ranking}</div>
 						</h3>
 						<h3 class="taut">
 							↪ This Season: <div class="right">+{userState.user?.status_updates}</div>
 						</h3>
 						<h3 class="taut">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↪ Ranking: <div class="right">#{userState.user?.status_ranking}</div>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↪ Ranking: <div class="right">#{status_ranking}</div>
 						</h3>
 						<!--<h3>Total Approvals Given: <div class="right">{userState.user?.points}</div></h3>
 						<h3>Total Disapprovals Given: <div class="right">{userState.user?.points}</div></h3>
@@ -320,7 +320,7 @@
 							Friends Invited: <div class="right">{userState.user?.friends_invited}</div>
 						</h3>
 						<h3 class="taut">
-							↪ Ranking: <div class="right">#{userState.user?.friends_ranking}</div>
+							↪ Ranking: <div class="right">#{friends_ranking}</div>
 						</h3>
 					</div>
 				</div>
