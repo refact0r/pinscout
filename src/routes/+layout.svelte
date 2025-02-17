@@ -118,7 +118,7 @@
 				container_height = 0;
 			} else {
 				map_height = 80;
-				container_height = 15;
+				container_height = 16;
 			}
 		} else if (pathname === '/dashboard') {
 			if (!logged_in) {
@@ -175,7 +175,7 @@
 		height: 100vh;
 	}
 	.container {
-		height: 15vh;
+		height: 16vh;
 		width: 98%;
 		margin: 0 1%;
 		padding: 1.5rem 1.25rem 1rem;
