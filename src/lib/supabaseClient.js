@@ -13,7 +13,7 @@ export const getUser = async () => {
 		}
 		return user.data.user;
 	} else {
-		goto('/login');
+		return null;
 	}
 };
 
