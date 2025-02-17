@@ -155,5 +155,6 @@
 		height: 20vh;
 		width: 100%;
 		padding: 1rem;
+		overflow: auto;
 	}
 </style>
