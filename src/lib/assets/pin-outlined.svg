@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 69.35 78.56">
+   <defs>
+      <style>
+         .cls-1 {
+         fill: currentColor;
+         }
+
+         .cls-2 {
+         fill: #fff;
+         }
+      </style>
+   </defs>
+   <path
+      class="cls-1"
+      d="m 58.322141,58.330329 c 13.060646,-13.060646 13.060646,-34.233555 0,-47.303848 -13.060646,-13.0606464 -34.233555,-13.0606464 -47.294202,0.0096 -13.0606471,13.060646 -13.0606471,34.243201 0,47.303848 l 16.697178,16.050898 c 4.11883,3.964494 10.649153,3.896973 14.690816,-0.14469 L 58.322141,58.339953 Z"
+      id="path1"
+      style="stroke:#ffffff;stroke-width:2.48025;stroke-dasharray:none;stroke-opacity:1" />
+   <circle
+      class="cls-2"
+      cx="34.670216"
+      cy="34.591599"
+      r="26.150232"
+      id="circle1" />
+</svg>

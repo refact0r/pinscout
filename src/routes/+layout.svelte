@@ -12,20 +12,16 @@
 	import { goto } from '$app/navigation';
 	import Pin from '$lib/components/Pin.svelte';
 
+	let { children, data } = $props();
+
 	mapboxgl.accessToken =
 		'pk.eyJ1IjoicmVmYWN0MHIiLCJhIjoiY203ODZndDB3MHI4bTJrcHVpcDl0a2NjYiJ9.oFH9TjRqRRobGDri9dbmfA';
 
-	const pins = [
-		[-122.205, 47.613],
-		[-122.21, 47.61],
-		[-122.215, 47.615],
-		[-122.22, 47.62]
-	];
+	console.log(data);
 
 	let mapPins = [];
 
 	let logged_in = $state(false);
-	let map_height = $state(80);
 	let container_height = $state(20);
 
 	function updateVisiblePins(map) {
@@ -36,11 +32,13 @@
 		mapPins = [];
 
 		// add only pins that are within the current bounds
-		pins.forEach((markerCoords) => {
-			if (bounds.contains(markerCoords)) {
+		data.pins.forEach((pin) => {
+			if (bounds.contains([pin.longitude, pin.latitude])) {
 				const ref = document.createElement('div');
-				mount(Pin, { target: ref, props: { type: 'restroom' } });
-				const marker = new mapboxgl.Marker(ref).setLngLat(markerCoords).addTo(map);
+				mount(Pin, { target: ref, props: { type: pin.type, subtype: pin.subtype } });
+				const marker = new mapboxgl.Marker({ element: ref, anchor: 'bottom' })
+					.setLngLat([pin.longitude, pin.latitude])
+					.addTo(map);
 				mapPins.push(marker);
 			}
 		});
@@ -111,23 +109,20 @@
 			updateVisiblePins(map);
 		});
 
-		map.on('click', (e) => {});
+		map.on('click', () => {});
 	});
 
 	function setComponentHeight(pathname) {
 		if (pathname === '/') {
 			if (logged_in) {
-				map_height = 100;
 				container_height = 8;
 			} else {
-				map_height = 80;
 				container_height = 16;
 			}
 		} else if (pathname === '/dashboard') {
 			if (!logged_in) {
 				goto('/login');
 			} else {
-				map_height = 20;
 				container_height = 89;
 			}
 		} else if (
@@ -137,10 +132,8 @@
 			pathname === '/settings' ||
 			pathname === '/about'
 		) {
-			map_height = 20;
 			container_height = 89;
 		} else {
-			map_height = 50;
 			container_height = 50;
 		}
 	}
@@ -152,7 +145,7 @@
 
 <div id="map" class="map"></div>
 <div class="container" style="height: {container_height}vh;">
-	<slot></slot>
+	{@render children()}
 </div>
 <div class="position">
 	<Header />
@@ -176,7 +169,7 @@
 	}
 	.map {
 		width: 100%;
-		height: 100vh;
+		height: 100%;
 	}
 	.container {
 		height: 16vh;
