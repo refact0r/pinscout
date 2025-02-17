@@ -27,7 +27,7 @@
         gap: .25rem;
         align-items: center;
 		font-size: 1.2rem;
-        padding-top:1.5rem;
+        padding-top:.75rem;
     }
     .a{
         align-items: center;
