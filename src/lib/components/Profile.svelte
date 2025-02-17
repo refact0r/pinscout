@@ -15,12 +15,12 @@
 				<UserCircle size="1.5rem" />
 			</div>
 		</a>
-		<button class="logout" title="Sign Out" onclick={logout}><SignOut size="1.5rem" /></button>
+		<button class="logout icon" title="Sign Out" onclick={logout}><SignOut size="1.5rem" /></button>
 	{:else}
-		<button class="link" onclick={login}>
+		<button onclick={login}>
 			<div>Login</div>
 			<div class="avatar">
-				<UserCircle size="1.5rem" />
+				<UserCircle size="2rem" />
 			</div>
 		</button>
 	{/if}
@@ -70,13 +70,16 @@
 	}
 
 	button {
-		width: 2.5rem;
-		height: 2.5rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: 0.75rem;
 		border: 2px solid transparent;
+		border-radius: 0.75rem;
+		gap: 0.5rem;
+	}
+	button.icon {
+		width: 2.5rem;
+		height: 2.5rem;
 	}
 	button:hover {
 		/* color: var(--red); */

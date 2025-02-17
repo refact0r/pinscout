@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/state';
+	import { userState } from '$lib/state.svelte';
 	import logo from '$lib/assets/pinscout-logo.svg';
 	import Logo from './Logo.svelte';
 
@@ -21,14 +22,16 @@
 		>
 			<MapTrifold />
 		</a>
-		<a
-			class="link"
-			href="/dashboard"
-			title="Dashboard"
-			class:active={page.url.pathname === '/dashboard'}
-		>
-			<House />
-		</a>
+		{#if userState.user}
+			<a
+				class="link"
+				href="/dashboard"
+				title="Dashboard"
+				class:active={page.url.pathname === '/dashboard'}
+			>
+				<House />
+			</a>
+		{/if}
 		<a
 			class="link"
 			href="/leaderboard"
@@ -37,14 +40,16 @@
 		>
 			<Ranking />
 		</a>
-		<a
-			class="link"
-			href="/settings"
-			title="Settings"
-			class:active={page.url.pathname === '/settings'}
-		>
-			<Gear />
-		</a>
+		{#if userState.user}
+			<a
+				class="link"
+				href="/settings"
+				title="Settings"
+				class:active={page.url.pathname === '/settings'}
+			>
+				<Gear />
+			</a>
+		{/if}
 		<a class="link" href="/about" title="About" class:active={page.url.pathname === '/about'}>
 			<Info />
 		</a>
