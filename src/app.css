@@ -64,3 +64,10 @@ button {
 		background: var(--bg-3);
 	}
 }
+
+#map .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+	background-color: transparent;
+}
+#map .mapboxgl-ctrl-attrib a {
+	color: white;
+}

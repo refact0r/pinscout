@@ -3,7 +3,7 @@
 	import X from 'phosphor-svelte/lib/X';
 	import { supabase } from '$lib/supabaseClient';
 	import { v4 as uuidv4 } from 'uuid';
-	import { userState } from '$lib/state.svelte';
+	import { userState, pinState } from '$lib/state.svelte';
 	import { PUBLIC_SUPABASE_URL } from '$env/static/public';
 	import { colorMap } from '$lib/utils';
 	import Modal from '$lib/components/Modal.svelte';
@@ -13,9 +13,9 @@
 	let { data, form } = $props();
 	let images = $state([]);
 
-	let pin = $state(data.pins?.find((pin) => String(pin.id) === data.id) || null);
+	let pin = $state(pinState.pins?.find((pin) => String(pin.id) === data.id) || null);
 	$effect(() => {
-		pin = data.pins?.find((pin) => String(pin.id) === data.id) || null;
+		pin = pinState.pins?.find((pin) => String(pin.id) === data.id) || null;
 		selectedPin.pin = data.id;
 	});
 
@@ -131,57 +131,59 @@
 
 <div class="page">
 	<div class="top">
-		<div class="tags">
-			<span class="tag" style="--color: {colorMap[pin.type]}">{pin.type}</span>
-			{#if pin.name.length > 0}
-				<span class="tag" style="--color: {colorMap[pin.type]}">{pin.subtype}</span>
-			{/if}
-		</div>
 		<a href="/" onclick={() => (selectedPin.pin = null)}><X size="1.5rem" /></a>
 	</div>
-	<h1>
-		{#if pin.name.length > 0}
-			{pin.name}
-		{:else}
-			{pin.subtype}
-		{/if}
-	</h1>
-
-	{#if images.length > 0}
-		<div class="image-list">
-			{#each images as image}
-				<img src={`${PUBLIC_SUPABASE_URL}storage/v1/object/public/images/${image.image_path}`} />
-			{/each}
+	{#if pin}
+		<div class="tags">
+			<span class="tag" style="--color: {colorMap[pin.type] || '#333'}">{pin.type}</span>
+			{#if pin.name.length > 0}
+				<span class="tag" style="--color: {colorMap[pin.type] || '#333'}">{pin.subtype}</span>
+			{/if}
 		</div>
-	{/if}
+		<h1>
+			{#if pin.name.length > 0}
+				{pin.name}
+			{:else}
+				{pin.subtype}
+			{/if}
+		</h1>
 
-	{#if userState.user}
-		<button class="upload surface-button" onclick={openModal}>upload image</button>
-	{/if}
-
-	{#if userState.user}
-		<div>is it still here?</div>
-		<div class="review-form">
-			<textarea bind:value={textinput} placeholder="Leave a review" maxlength="25"></textarea>
-			<button onclick={submitReview}><PaperPlaneRight /></button>
-		</div>
-		{#each reviews as review}
-			<div class="review">
-				<div class="user">
-					<img src={review?.profiles?.avatar_url} alt="Avatar" />
-					<div>{review?.profiles?.name}</div>
-				</div>
-				{review.content}
-				<div class="bottom">
-					<button>
-						<ThumbsUp />
-					</button>
-					<button>
-						<ThumbsDown />
-					</button>
-				</div>
+		{#if images.length > 0}
+			<div class="image-list">
+				{#each images as image}
+					<img src={`${PUBLIC_SUPABASE_URL}storage/v1/object/public/images/${image.image_path}`} />
+				{/each}
 			</div>
-		{/each}
+		{/if}
+
+		{#if userState.user}
+			<button class="upload surface-button" onclick={openModal}>upload image</button>
+		{/if}
+
+		{#if userState.user}
+			<div>is it still here?</div>
+			<div class="review-form">
+				<textarea bind:value={textinput} placeholder="Leave a review" maxlength="25"></textarea>
+				<button onclick={submitReview}><PaperPlaneRight /></button>
+			</div>
+			{#each reviews as review}
+				<div class="review">
+					<div class="user">
+						<img src={review?.profiles?.avatar_url} alt="Avatar" />
+						<div>{review?.profiles?.name}</div>
+					</div>
+					{review.content}
+					<div class="bottom">
+						<button>
+							<ThumbsUp />
+						</button>
+						<button>
+							<ThumbsDown />
+						</button>
+					</div>
+				</div>
+			{/each}
+		{/if}
 	{/if}
 </div>
 
@@ -205,12 +207,13 @@
 		height: 100%;
 		padding: 1rem;
 		overflow: auto;
+		position: relative;
 	}
 
 	.top {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
 	}
 
 	.tags {

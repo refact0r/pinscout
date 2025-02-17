@@ -12,7 +12,7 @@
 			<div>{userState.user?.points} PP</div>
 			<div class="avatar">
 				<img src={userState.user?.avatar_url} alt="" />
-				<UserCircle size="1.5rem" />
+				<UserCircle size="2rem" />
 			</div>
 		</a>
 		<button class="logout icon" title="Sign Out" onclick={logout}><SignOut size="1.5rem" /></button>

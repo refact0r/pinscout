@@ -1,5 +1,6 @@
 <script>
 	import { Question } from 'phosphor-svelte';
+	import X from 'phosphor-svelte/lib/X';
 
 	export let data;
 
@@ -27,6 +28,9 @@
 </svelte:head>
 
 <div class="content">
+	<div class="top">
+		<a href="/"><X size="1.5rem" /></a>
+	</div>
 	<h1>Leaderboards</h1>
 	<div class="leaderboards">
 		<div class="bar">
@@ -356,12 +360,17 @@
 
 <style>
 	.content {
-		text-align: center;
-		padding-bottom: 2rem;
+		padding: 2rem;
+		position: relative;
+	}
+	.top {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
 	}
 	h1 {
-		margin: 2rem 0rem 0rem;
-		font-size: 4rem;
+		margin: 1rem 0;
+		font-size: 3rem;
 	}
 	h2,
 	p {
@@ -370,7 +379,7 @@
 	.bar {
 		background-color: var(--bg-2);
 		/* width: 96%; */
-		margin: 1rem 2rem;
+		margin: 1rem 0rem;
 		border-radius: 1rem;
 		padding: 2rem;
 		border: 2px solid var(--bg-2);
@@ -380,7 +389,7 @@
 		height: 68vh;
 	}
 	.line {
-		padding: 1rem 2rem;
+		padding: 1rem 0rem;
 		display: flex;
 		gap: 2rem;
 	}
