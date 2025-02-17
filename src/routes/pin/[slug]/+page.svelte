@@ -1,6 +1,6 @@
 <script>
 	import { selectedPin } from '$lib/state.svelte.js';
-	import { X } from 'phosphor-svelte';
+	import X from 'phosphor-svelte/lib/X';
 	import { supabase } from '$lib/supabaseClient';
 	import { v4 as uuidv4 } from 'uuid';
 	import { userState } from '$lib/state.svelte';

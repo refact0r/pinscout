@@ -20,7 +20,7 @@
 		<div class="modal box">
 			<div class="modal-header">
 				<h2>{title}</h2>
-				<button class="close-button" onclick={close}><X /></button>
+				<button class="close-button" onclick={close}><X size="1.5rem" /></button>
 			</div>
 			<div class="modal-body">
 				{@render children()}
@@ -63,7 +63,6 @@
 	.close-button {
 		background: none;
 		border: none;
-		font-size: 1.5rem;
 		padding: 0;
 	}
 
