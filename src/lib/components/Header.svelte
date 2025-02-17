@@ -3,7 +3,7 @@
 	import Logo from './Logo.svelte';
 	import PinSmall from './PinSmall.svelte';
 
-	import {House, MapTrifold, Ranking, Gear, Info} from 'phosphor-svelte';
+	import { House, MapTrifold, Ranking, Gear, Info } from 'phosphor-svelte';
 
 	//export let logged_in;
 </script>
@@ -16,7 +16,7 @@
 			<a class="link" href="/" title="Map"><MapTrifold /></a>
 			<a class="link" href="/leaderboard" title="Leaderboard"><Ranking /></a>
 			<a class="link" href="/settings" title="Settings"><Gear /></a>
-			<a class="link" href="/about" title="About"><Info/></a>
+			<a class="link" href="/about" title="About"><Info /></a>
 		</div>
 	</div>
 </div>
@@ -28,14 +28,14 @@
 	.header {
 		margin: 1rem;
 		border-radius: 1rem;
-		padding: .5rem .75rem;
+		padding: 0.5rem 0.75rem;
 		background-color: rgba(255, 255, 255, 0.75);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		backdrop-filter: blur(4px);
 		font-size: 1.5rem;
-		transition: .2s;
+		transition: 0.2s;
 	}
 	.header:hover {
 		background-color: white;
@@ -48,7 +48,7 @@
 		color: black;
 		text-decoration: none;
 		display: flex;
-		transition: .2s;
+		transition: 0.2s;
 	}
 	a:hover {
 		color: rgb(234, 72, 78);
