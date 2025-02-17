@@ -9,7 +9,10 @@
 	<div class="position">
 		<a class="header" href="/dashboard">
 			<div>{userState.user?.points} PP</div>
-			<div><UserCircle /></div>
+			<div class="avatar">
+				<img src={userState.user?.avatar_url} />
+				<UserCircle size="2rem" />
+			</div>
 		</a>
 	</div>
 {/if}
@@ -24,6 +27,7 @@
 		padding: 0.5rem 0.75rem;
 		background-color: rgba(255, 255, 255, 0.75);
 		display: flex;
+		gap: 1rem;
 		align-items: center;
 		justify-content: space-between;
 		backdrop-filter: blur(4px);
@@ -39,5 +43,19 @@
 	}
 	a {
 		display: flex;
+	}
+	.avatar {
+		width: 2rem;
+		height: 2rem;
+		position: relative;
+	}
+
+	.avatar * {
+		width: 2rem;
+		height: 2rem;
+		border-radius: 9999px;
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 </style>
