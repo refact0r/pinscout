@@ -22,10 +22,10 @@
 	let uploadError = $state('');
 	let imagePath;
 	$effect(async () => {
-		await getImages();
+		await getImages(pin);
 	});
 
-	async function getImages() {
+	async function getImages(pin) {
 		if (!pin) return;
 
 		const { data: newImages, error: imageError } = await supabase
