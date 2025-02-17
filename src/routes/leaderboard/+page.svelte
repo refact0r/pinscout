@@ -362,6 +362,9 @@
 	.content {
 		padding: 2rem;
 		position: relative;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
 	}
 	.top {
 		position: absolute;
@@ -386,7 +389,6 @@
 	}
 	.leaderboards {
 		overflow: auto;
-		height: 68vh;
 	}
 	.line {
 		padding: 1rem 0rem;
