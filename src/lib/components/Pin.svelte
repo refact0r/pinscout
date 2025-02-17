@@ -1,6 +1,7 @@
 <script>
 	import pinOutlined from '$lib/assets/pin-outlined.svg?raw';
 	import { Toilet } from 'phosphor-svelte';
+	import { Car } from 'phosphor-svelte';
 
 	let { type, subtype } = $props();
 
@@ -8,11 +9,12 @@
 		safety: 'red',
 		utility: 'green',
 		tech: 'blue',
-		transportation: 'yellow',
+		transportation: 'orange',
 		explore: 'purple'
 	};
 	const iconMap = {
-		restroom: Toilet
+		restroom: Toilet,
+		parking: Car
 	};
 	let Icon = $state(iconMap[subtype]);
 </script>
