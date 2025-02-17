@@ -109,15 +109,17 @@
 		{/if}
 	</h1>
 
-	<div class="image-list">
-		{#each images as image}
-			<img src={`${PUBLIC_SUPABASE_URL}storage/v1/object/public/images/${image.image_path}`} />
-		{/each}
-	</div>
+	{#if images.length > 0}
+		<div class="image-list">
+			{#each images as image}
+				<img src={`${PUBLIC_SUPABASE_URL}storage/v1/object/public/images/${image.image_path}`} />
+			{/each}
+		</div>
+	{/if}
 
-	<br />
-
-	<button class="upload surface-button" onclick={openModal}>upload image</button>
+	{#if userState.user}
+		<button class="upload surface-button" onclick={openModal}>upload image</button>
+	{/if}
 </div>
 
 <Modal bind:this={modal} title="upload image"
@@ -172,6 +174,7 @@
 		scrollbar-width: none;
 		-ms-overflow-style: none;
 		border-radius: 0.75rem;
+		margin: 1rem 0;
 	}
 
 	.image-list::-webkit-scrollbar {
@@ -187,6 +190,7 @@
 
 	.upload {
 		width: 100%;
+		margin-bottom: 1rem;
 	}
 
 	.upload-row {
