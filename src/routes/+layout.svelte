@@ -188,6 +188,8 @@
 				console.error('Error creating pin:', error);
 				return;
 			}
+
+			location.reload();
 		}
 	}
 
