@@ -343,7 +343,7 @@
 								<div class="vertical-center" style="margin-top: auto; margin-bottom:auto;">
 									<br /><br />
 									<h3>Username: {userState.user?.name}</h3>
-									<h3>Account Created: _date_</h3>
+									<h3>Account Created: {userState.user?.time_created}</h3>
 								</div>
 							</div>
 						</div>
