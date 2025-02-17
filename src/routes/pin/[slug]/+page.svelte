@@ -9,7 +9,10 @@
 	let { data, form } = $props();
 	let images = $state([]);
 
-	let pin = data.pins.find((pin) => String(pin.id) === data.id);
+	let pin = $state(data.pins.find((pin) => String(pin.id) === data.id));
+	$effect(() => {
+		pin = data.pins.find((pin) => String(pin.id) === data.id);
+	});
 
 	let fileInput;
 	let uploadError = $state('');
