@@ -68,7 +68,7 @@
 					<h3 class="taut">↪ From Quests: <div class="right">+{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ From Location-Marking: <div class="right">+{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ From Reviews: <div class="right">+{userState.user?.points}</div></h3>
-					<h3 class="taut">↪ From Approvals/Dissapprovals Given: <div class="right">+{userState.user?.points}</div></h3>
+					<h3 class="taut">↪ From Approvals/Disapprovals Given: <div class="right">+{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ From Approvals Received: <div class="right">+{userState.user?.points}</div></h3>
 				</div>
 			</div>
@@ -90,11 +90,11 @@
 					<h3 class="taut">↪ Ranking: <div class="right">#1</div></h3>
 					<h3 class="taut">↪ Past Month: <div class="right">+{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ Past Year: <div class="right">+{userState.user?.points}</div></h3>
-					<h3>Total Approvals/Dissaprovals Given: <div class="right">{userState.user?.points}</div></h3>
+					<h3>Total Approvals/Disapprovals Given: <div class="right">{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ Ranking: <div class="right">#1</div></h3>
 					<h3 class="taut">↪ Past Month: <div class="right">+{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ Past Year: <div class="right">+{userState.user?.points}</div></h3>
-					<h3>Total Approvals/Dissapprovals Received: <div class="right">{userState.user?.points}</div></h3>
+					<h3>Total Approvals/Disapprovals Received: <div class="right">{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ Ranking: <div class="right">#1</div></h3>
 					<h3 class="taut">↪ Past Month: <div class="right">+{userState.user?.points}</div></h3>
 					<h3 class="taut">↪ Past Year: <div class="right">+{userState.user?.points}</div></h3>
