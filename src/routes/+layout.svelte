@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { navigating } from '$app/stores';
+	import { page, navigating } from '$app/stores';
 	import '../app.css';
 	import mapboxgl from 'mapbox-gl';
 	import 'mapbox-gl/dist/mapbox-gl.css';
@@ -22,6 +22,8 @@
 	let mapPins = [];
 
 	let logged_in;
+	let map_height;
+	let container_height;
 
 	function updateVisiblePins(map) {
 		const bounds = map.getBounds();
@@ -105,10 +107,28 @@
 		map.on('moveend', () => {
 			updateVisiblePins(map);
 		});
+
+		if ($page.url.pathname === "/") {
+			if (logged_in) {
+				map_height = 100;
+				container_height = 0;
+			} else {
+				map_height = 80;
+				container_height = 20;
+			}	
+		} else if ($page.url.pathname === "/dashboard") {
+			map_height = 20;
+			container_height = 80;
+		} else if ($page.url.pathname === "/login" || $page.url.pathname === "/signup" || $page.url.pathname === "/settings" || $page.url.pathname === "/about") {
+			map_height = 20;
+			container_height = 80;
+		} else {
+			map_height = 50;
+			container_height = 50;
+		}
 	});
 
-	let map_height = 80;
-	let container_height = 20;
+
 
 	function setComponentHeight(pathname){
 		if (pathname === "/") {
@@ -120,8 +140,8 @@
 				container_height = 20;
 			}	
 		} else if (pathname === "/dashboard") {
-			map_height = 0;
-			container_height = 100;
+			map_height = 20;
+			container_height = 80;
 		} else if (pathname === "/login" || pathname === "/signup" || pathname === "/settings" || pathname === "/about") {
 			map_height = 20;
 			container_height = 80;

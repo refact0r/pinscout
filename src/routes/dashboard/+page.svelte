@@ -15,18 +15,10 @@
 
 <style>
 	.content {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		z-index: 2;
+		
 		background-color: rgba(73, 171, 207, 1);
 	}
 	.dashboard {
-		margin: 4vh 4vw;
-		padding: 2vh 2vw;
-
 		background-color: rgba(255, 255, 255, 0.6);
 		border-radius: 1vw;
 	}
