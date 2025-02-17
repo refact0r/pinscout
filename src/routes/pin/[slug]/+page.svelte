@@ -3,7 +3,10 @@
 
 	let { data } = $props();
 
-	let pin = data.pins.find((pin) => String(pin.id) === data.id);
+	let pin = $state(data.pins.find((pin) => String(pin.id) === data.id));
+	$effect(() => {
+		pin = data.pins.find((pin) => String(pin.id) === data.id);
+	});
 </script>
 
 <div class="page">
