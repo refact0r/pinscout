@@ -39,6 +39,7 @@
 	button:hover {
 		color: white;
 		background-color: rgb(234, 72, 78);
+		cursor: pointer;
 	}
 
 	h1 {

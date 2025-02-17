@@ -5,17 +5,17 @@
 	export let logged_in;
 </script>
 
-{#if userState.user}
-	<div class="position">
-		<a class="header" href="/dashboard">
-			<div>{userState.user?.points} PP</div>
-			<div class="avatar">
-				<img src={userState.user?.avatar_url} />
-				<UserCircle size="2rem" />
-			</div>
-		</a>
-	</div>
-{/if}
+<div class="position">
+	<a class="header" href="/dashboard">
+		<div>{userState.user ? userState.user.points : 0} PP</div>
+		<div class="avatar">
+			{#if userState.user}
+				<img src={userState.user.avatar_url} />
+			{/if}
+			<UserCircle size="2rem" />
+		</div>
+	</a>
+</div>
 
 <style>
 	.position {
