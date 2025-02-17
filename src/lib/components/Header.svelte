@@ -14,7 +14,7 @@
 		<div class="right">
 			<a class="link" href="/" title="Home"><House /></a>
 			<a class="link" href="/" title="Map"><MapTrifold /></a>
-			<a class="link" href="/" title="Leaderboard"><Ranking /></a>
+			<a class="link" href="/leaderboard" title="Leaderboard"><Ranking /></a>
 			<a class="link" href="/settings" title="Settings"><Gear /></a>
 			<a class="link" href="/about" title="About"><Info/></a>
 		</div>

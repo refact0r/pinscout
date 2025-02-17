@@ -1,5 +1,5 @@
 <div class="content">
-    <h1>Setting</h1>
+    <h1>Settings</h1>
 </div>
 
 <style>
