@@ -133,6 +133,7 @@
 		} else if (
 			pathname === '/login' ||
 			pathname === '/signup' ||
+			pathname === '/leaderboard' ||
 			pathname === '/settings' ||
 			pathname === '/about'
 		) {
