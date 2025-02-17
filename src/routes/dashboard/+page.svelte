@@ -6,6 +6,8 @@
 	import Question from 'phosphor-svelte/lib/Question';
 	import ArrowSquareOut from 'phosphor-svelte/lib/ArrowSquareOut';
 
+	export let data;
+
 	let greeting;
 	let dashboard;
 
@@ -13,6 +15,31 @@
 	let pp_popup;
 	let x;
 	let y;
+
+	let pp_sort = data.users.slice();
+	pp_sort.sort((x, y) => y.points - x.points);
+
+	let reviews_sort = data.users.slice();
+	reviews_sort.sort((x, y) => y.num_reviews - x.num_reviews);
+
+	let status_sort = data.users.slice();
+	status_sort.sort((x, y) => y.status_updates - x.status_updates);
+
+	let quests_sort = data.users.slice();
+	quests_sort.sort((x, y) => y.quests_completed - x.quests_completed);
+
+	let friends_sort = data.users.slice();
+	friends_sort.sort((x, y) => y.friends_invited - x.friends_invited);
+
+	let locations_sort = data.users.slice();
+	locations_sort.sort((x, y) => y.locations_marked - x.locations_marked);
+
+	let pp_ranking = pp_sort.findIndex((user) => user.name === userState.user?.name)+1;
+	let reviews_ranking = reviews_sort.findIndex((user) => user.name === userState.user?.name)+1;
+	let status_ranking = status_sort.findIndex((user) => user.name === userState.user?.name)+1;
+	let quests_ranking = quests_sort.findIndex((user) => user.name === userState.user?.name)+1;
+	let friends_ranking = friends_sort.findIndex((user) => user.name === userState.user?.name)+1;
+	let locations_ranking = locations_sort.findIndex((user) => user.name === userState.user?.name)+1;
 	
 	onMount(()=>{
 		var now = new Date();
@@ -65,7 +92,6 @@
 		}
 		
 		x = mx;
-		
 		//console.log(getThumbPosition(dashboard));
 	}
 
@@ -128,9 +154,9 @@
 						<h3 class="taut">↪ Past Week: <div class="right">+{userState.user?.points}</div></h3>
 						<h3 class="taut">↪ Past Month: <div class="right">+{userState.user?.points}</div></h3>
 						<h3 class="taut">↪ This Season: <div class="right">+{userState.user?.points}</div></h3>
-						<h3 class="taut">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↪ Ranking: <div class="right">#1</div></h3>
+						<h3 class="taut">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↪ Ranking: <div class="right">#{pp_ranking}</div></h3>
 						<h3>Lifetime PinPoints Gained: <div class="right">{userState.user?.points}</div></h3>
-						<h3 class="taut">↪ Ranking: <div class="right">#1</div></h3>
+						<h3 class="taut">↪ Ranking: <div class="right">#{pp_ranking}</div></h3>
 						<h3 class="taut">↪ From Quests: <div class="right">+{userState.user?.points}</div></h3>
 						<h3 class="taut">↪ From Location-Marking: <div class="right">+{userState.user?.points}</div></h3>
 						<h3 class="taut">↪ From Status Updates: <div class="right">+{userState.user?.points}</div></h3>
@@ -146,23 +172,23 @@
 				<div class="scrollbar">
 					<div class="substats">
 						<h3>Total Quests Completed: <div class="right">{userState.user?.quests_completed}</div></h3>
-						<h3 class="taut">↪ Ranking: <div class="right">#1</div></h3>
+						<h3 class="taut">↪ Ranking: <div class="right">#{quests_ranking}</div></h3>
 						<h3>Total Verified Locations Marked: <div class="right">{userState.user?.locations_marked}</div></h3>
-						<h3 class="taut">↪ Ranking: <div class="right">#1</div></h3>
+						<h3 class="taut">↪ Ranking: <div class="right">#{locations_ranking}</div></h3>
 						<h3>Total Reviews Left: <div class="right">{userState.user?.num_reviews}</div></h3>
-						<h3 class="taut">↪ Ranking: <div class="right">#1</div></h3>
+						<h3 class="taut">↪ Ranking: <div class="right">#{reviews_ranking}</div></h3>
 						<h3 class="taut">↪ This Season: <div class="right">+{userState.user?.num_reviews}</div></h3>
-						<h3 class="taut">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↪ Ranking: <div class="right">#1</div></h3>
+						<h3 class="taut">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↪ Ranking: <div class="right">#{reviews_ranking}</div></h3>
 						<h3>Total Statuses Updated: <div class="right">{userState.user?.status_updates}</div></h3>
-						<h3 class="taut">↪ Ranking: <div class="right">#1</div></h3>
+						<h3 class="taut">↪ Ranking: <div class="right">#{status_ranking}</div></h3>
 						<h3 class="taut">↪ This Season: <div class="right">+{userState.user?.status_updates}</div></h3>
-						<h3 class="taut">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↪ Ranking: <div class="right">#1</div></h3>
+						<h3 class="taut">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↪ Ranking: <div class="right">#{status_ranking}</div></h3>
 						<!--<h3>Total Approvals Given: <div class="right">{userState.user?.points}</div></h3>
 						<h3>Total Disapprovals Given: <div class="right">{userState.user?.points}</div></h3>
 						<h3>Total Approvals Received: <div class="right">{userState.user?.points}</div></h3>
 						<h3>Total Disapprovals Received: <div class="right">{userState.user?.points}</div></h3>-->
 						<h3>Friends Invited: <div class="right">{userState.user?.friends_invited}</div></h3>
-						<h3 class="taut">↪ Ranking: <div class="right">#1</div></h3>
+						<h3 class="taut">↪ Ranking: <div class="right">#{friends_ranking}</div></h3>
 					</div>
 				</div>
 			</div>
