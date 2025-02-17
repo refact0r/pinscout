@@ -1,6 +1,6 @@
 <script>
 	import { mount, onMount } from 'svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import '../app.css';
 	import mapboxgl from 'mapbox-gl';
 	import 'mapbox-gl/dist/mapbox-gl.css';
@@ -17,12 +17,13 @@
 	mapboxgl.accessToken =
 		'pk.eyJ1IjoicmVmYWN0MHIiLCJhIjoiY203ODZndDB3MHI4bTJrcHVpcDl0a2NjYiJ9.oFH9TjRqRRobGDri9dbmfA';
 
-	console.log(data);
-
 	let mapPins = [];
 
 	let logged_in = $state(false);
 	let container_height = $state(20);
+
+	let pageHidden = $state(true);
+	let pageFull = $state(false);
 
 	function updateVisiblePins(map) {
 		const bounds = map.getBounds();
@@ -113,17 +114,16 @@
 	});
 
 	function setComponentHeight(pathname) {
+		console.log('setComponentHeight', pathname);
 		if (pathname === '/') {
-			if (logged_in) {
-				container_height = 8;
-			} else {
-				container_height = 16;
-			}
+			pageHidden = true;
+			pageFull = false;
 		} else if (pathname === '/dashboard') {
 			if (!logged_in) {
 				goto('/login');
 			} else {
-				container_height = 89;
+				pageHidden = false;
+				pageFull = true;
 			}
 		} else if (
 			pathname === '/login' ||
@@ -132,14 +132,16 @@
 			pathname === '/settings' ||
 			pathname === '/about'
 		) {
-			container_height = 89;
+			pageHidden = false;
+			pageFull = true;
 		} else {
-			container_height = 50;
+			pageHidden = false;
+			pageFull = false;
 		}
 	}
 
 	$effect(() => {
-		setComponentHeight($page.url.pathname);
+		setComponentHeight(page.url.pathname);
 	});
 </script>
 
@@ -148,7 +150,7 @@
 	<div class="header-container">
 		<Header />
 	</div>
-	<div class="page box">
+	<div class="page box" class:hidden={pageHidden} class:full={pageFull}>
 		{@render children()}
 	</div>
 	<div class="profile-container">
@@ -184,15 +186,21 @@
 		z-index: 1;
 	}
 	.page {
-		grid-area: 2 / 1 / 3 / 2;
+		grid-area: 2 / 1 / 3 / 5;
+		width: 30%;
+		min-width: 35rem;
 		z-index: 2;
+		transform: translateX(0);
+		transition:
+			transform 0.3s,
+			width 0.2s;
 
 		&.full {
-			grid-area: 2 / 1 / 3 / 5;
+			width: 100%;
 		}
-
 		&.hidden {
-			transform: translateX(100%);
+			width: 30%;
+			transform: translateX(-105%);
 		}
 	}
 </style>

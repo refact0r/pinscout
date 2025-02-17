@@ -1,7 +1,6 @@
 <script>
 	import logo from '$lib/assets/pinscout-logo.svg';
 	import Logo from './Logo.svelte';
-	import PinSmall from './PinSmall.svelte';
 
 	import { House, MapTrifold, Ranking, Gear, Info } from 'phosphor-svelte';
 

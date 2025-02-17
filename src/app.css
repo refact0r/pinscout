@@ -2,6 +2,13 @@
 	--text: hsl(0, 0%, 0%);
 	--bg: hsla(0, 0%, 100%, 0.7);
 	--border: hsla(0, 0%, 100%, 0.5);
+	--red: oklch(70% 0.13 0);
+	--purple: oklch(70% 0.13 310);
+	--blue: oklch(70% 0.13 260);
+	--teal: oklch(70% 0.13 210);
+	--green: oklch(70% 0.13 160);
+	--yellow: oklch(75% 0.13 100);
+	--orange: oklch(70% 0.13 50);
 }
 
 * {
