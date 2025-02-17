@@ -14,8 +14,8 @@
 
 <div class="position">
 	<div class="header" on:click={()=>go()}>
-        <a>0 PP&nbsp;</a>
-		<a><UserCircle /></a>
+        <a title="0 PinPoints">0 PP&nbsp;</a>
+		<a title="Profile"><UserCircle /></a>
 	</div>
 </div>
 

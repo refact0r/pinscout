@@ -10,13 +10,13 @@
 
 <div class="position">
 	<div class="header">
-		<a href="/"><Logo /></a>
+		<a href="/" title="pinscout"><Logo /></a>
 		<div class="right">
-			<a class="link" href="/"><House /></a>
-			<a class="link" href="/"><MapTrifold /></a>
-			<a class="link" href="/"><Ranking /></a>
-			<a class="link" href="/settings"><Gear /></a>
-			<a class="link" href="/about"><Info/></a>
+			<a class="link" href="/" title="Home"><House /></a>
+			<a class="link" href="/" title="Map"><MapTrifold /></a>
+			<a class="link" href="/" title="Leaderboard"><Ranking /></a>
+			<a class="link" href="/settings" title="Settings"><Gear /></a>
+			<a class="link" href="/about" title="About"><Info/></a>
 		</div>
 	</div>
 </div>
