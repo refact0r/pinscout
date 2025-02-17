@@ -7,6 +7,8 @@
 	import { PUBLIC_SUPABASE_URL } from '$env/static/public';
 	import { colorMap } from '$lib/utils';
 	import Modal from '$lib/components/Modal.svelte';
+	import PaperPlaneRight from 'phosphor-svelte/lib/PaperPlaneRight';
+	import { ThumbsDown, ThumbsUp } from 'phosphor-svelte';
 
 	let { data, form } = $props();
 	let images = $state([]);
@@ -22,6 +24,7 @@
 	let imagePath;
 	$effect(async () => {
 		await getImages(pin);
+		await refreshReviews(pin);
 	});
 
 	async function getImages(pin) {
@@ -89,6 +92,41 @@
 	function openModal() {
 		modal.open();
 	}
+
+	let reviews = $state(data.reviews);
+	let textinput = $state('');
+
+	async function refreshReviews(pin) {
+		const { data: newReviews, error } = await supabase
+			.from('reviews')
+			.select('*')
+			.eq('pin_id', pin.id)
+			.select('*, profiles (id, name, avatar_url)');
+
+		if (error) {
+			console.error('Failed to refresh reviews:', error);
+			return;
+		}
+
+		reviews = newReviews || [];
+	}
+
+	async function submitReview() {
+		const { res, error } = await supabase.from('reviews').insert({
+			content: textinput,
+			pin_id: data.id,
+			author_id: userState.user.id
+		});
+
+		if (error) {
+			console.error('Failed to submit review:', error);
+			return;
+		}
+
+		refreshReviews();
+
+		textinput = '';
+	}
 </script>
 
 <div class="page">
@@ -120,6 +158,31 @@
 	{#if userState.user}
 		<button class="upload surface-button" onclick={openModal}>upload image</button>
 	{/if}
+
+	{#if userState.user}
+		<div>is it still here?</div>
+		<div class="review-form">
+			<textarea bind:value={textinput} placeholder="Leave a review" maxlength="25"></textarea>
+			<button onclick={submitReview}><PaperPlaneRight /></button>
+		</div>
+		{#each reviews as review}
+			<div class="review">
+				<div class="user">
+					<img src={review?.profiles?.avatar_url} alt="Avatar" />
+					<div>{review?.profiles?.name}</div>
+				</div>
+				{review.content}
+				<div class="bottom">
+					<button>
+						<ThumbsUp />
+					</button>
+					<button>
+						<ThumbsDown />
+					</button>
+				</div>
+			</div>
+		{/each}
+	{/if}
 </div>
 
 <Modal bind:this={modal} title="upload image"
@@ -141,6 +204,7 @@
 		width: 100%;
 		height: 100%;
 		padding: 1rem;
+		overflow: auto;
 	}
 
 	.top {
@@ -201,5 +265,60 @@
 
 	.error {
 		margin-bottom: 0;
+	}
+
+	.review-form {
+		display: flex;
+		margin-bottom: 1rem;
+		gap: 1.5rem;
+
+		button {
+			background-color: var(--bg-2);
+			border-radius: 0.75rem;
+			font-size: 1.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: 2px solid var(--bg-2);
+		}
+
+		textarea {
+			width: 100%;
+			height: 2.5rem;
+			background-color: var(--bg-2);
+			border: 2px solid var(--bg-2);
+			overflow: hidden;
+			outline: none;
+			padding: 0 0.75rem;
+			border-radius: 0.75rem;
+			resize: none;
+			font: inherit;
+			line-height: 2.5rem;
+		}
+	}
+
+	.review {
+		padding: 1rem 0;
+		img {
+			width: 2rem;
+			height: 2rem;
+			border-radius: 50%;
+			margin-right: 0.5rem;
+		}
+
+		.user {
+			display: flex;
+			align-items: center;
+			margin-bottom: 1rem;
+			font-size: 1rem;
+		}
+
+		.bottom {
+			display: flex;
+			gap: 1rem;
+			margin-top: 1rem;
+		}
 	}
 </style>
