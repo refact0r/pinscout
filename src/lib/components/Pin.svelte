@@ -1,8 +1,8 @@
 <script>
 	import PinOutlined from '$lib/assets/pin-outlined.svg?raw';
-	import { Toilet } from 'phosphor-svelte';
-	import { Car } from 'phosphor-svelte';
 	import { colorMap } from '$lib/utils';
+	import Toilet from 'phosphor-svelte/lib/Toilet';
+	import Car from 'phosphor-svelte/lib/Car';
 
 	let { type, subtype, pin_id } = $props();
 

@@ -46,7 +46,7 @@
 	.link:hover {
 		color: rgb(234, 72, 78);
 		cursor: pointer;
-		background-color: var(--border);
+		background-color: var(--bg-2);
 	}
 	a {
 		display: flex;
@@ -87,6 +87,6 @@
 	}
 
 	button:hover {
-		background-color: var(--border);
+		background-color: var(--bg-2);
 	}
 </style>

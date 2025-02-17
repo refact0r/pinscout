@@ -2,9 +2,10 @@
 	import logo from '$lib/assets/pinscout-logo.svg';
 	import Logo from './Logo.svelte';
 
-	import { House, MapTrifold, Ranking, Gear, Info } from 'phosphor-svelte';
-
-	//export let logged_in;
+	import MapTrifold from 'phosphor-svelte/lib/MapTrifold';
+	import Ranking from 'phosphor-svelte/lib/Ranking';
+	import Gear from 'phosphor-svelte/lib/Gear';
+	import Info from 'phosphor-svelte/lib/Info';
 </script>
 
 <div class="header box">

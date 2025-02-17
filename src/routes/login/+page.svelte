@@ -2,7 +2,7 @@
 	import { userState } from '$lib/state.svelte';
 	import { login } from '$lib/supabaseClient';
 
-	import {GoogleLogo} from 'phosphor-svelte';
+	import GoogleLogo from 'phosphor-svelte/lib/GoogleLogo';
 </script>
 
 <svelte:head>
@@ -14,12 +14,12 @@
 	<button on:click={login} title="Login with Google">
 		<a>Login with Google</a>
 	</button>
-	<br><br>
+	<br /><br />
 	<p>Login to pinscout to mark new locations, place reviews, earn pinpoints, and more!</p>
 </div>
 
 <style>
-	.box{
+	.box {
 		width: 20rem;
 		margin-left: auto;
 		margin-right: auto;
@@ -30,7 +30,7 @@
 		width: 100%;
 		height: 7vh;
 		font-family: 'Urbanist', serif;
-		text-align:center;
+		text-align: center;
 		align-content: center;
 		align-items: center;
 		font-size: 1rem;
@@ -38,7 +38,7 @@
 		border-radius: 1rem;
 		color: black;
 		background-color: white;
-		transition: .2s;
+		transition: 0.2s;
 	}
 	button:hover {
 		color: white;
@@ -47,7 +47,7 @@
 	}
 
 	h1 {
-        margin: 2rem 0rem;
-        font-size: 4rem;
-    }
+		margin: 2rem 0rem;
+		font-size: 4rem;
+	}
 </style>
