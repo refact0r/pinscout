@@ -2,16 +2,10 @@
 	import PinOutlined from '$lib/assets/pin-outlined.svg?raw';
 	import { Toilet } from 'phosphor-svelte';
 	import { Car } from 'phosphor-svelte';
+	import { colorMap } from '$lib/utils';
 
 	let { type, subtype } = $props();
 
-	const colorMap = {
-		safety: 'var(--red)',
-		utility: 'var(--green)',
-		tech: 'var(--blue)',
-		transportation: 'var(--orange)',
-		explore: 'var(--purple)'
-	};
 	const iconMap = {
 		restroom: Toilet,
 		parking: Car
