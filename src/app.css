@@ -1,3 +1,13 @@
+:root {
+	--text: hsl(0, 0%, 0%);
+	--bg: hsla(0, 0%, 100%, 0.7);
+	--border: hsla(0, 0%, 100%, 0.5);
+}
+
+* {
+	box-sizing: border-box;
+}
+
 body {
 	margin: 0;
 	width: 100vw;
@@ -7,6 +17,23 @@ body {
 	font-weight: 500;
 }
 
-* {
-	box-sizing: border-box;
+.box {
+	backdrop-filter: blur(0.75rem);
+	background: var(--bg);
+	border-radius: 1rem;
+	border: 2px solid var(--border);
+}
+
+a {
+	color: var(--text);
+}
+
+button {
+	font: inherit;
+	border: none;
+	background: none;
+
+	&:hover {
+		cursor: pointer;
+	}
 }

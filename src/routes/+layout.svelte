@@ -143,46 +143,56 @@
 	});
 </script>
 
-<div id="map" class="map"></div>
-<div class="container" style="height: {container_height}vh;">
-	{@render children()}
-</div>
-<div class="position">
-	<Header />
-</div>
-<div class="profile">
-	<Profile {logged_in} />
+<div class="layout">
+	<div id="map" class="map"></div>
+	<div class="header-container">
+		<Header />
+	</div>
+	<div class="page box">
+		{@render children()}
+	</div>
+	<div class="profile-container">
+		<Profile {logged_in} />
+	</div>
 </div>
 
 <style>
-	.position {
-		position: absolute;
-		top: 0;
-		z-index: 9;
-	}
-	.profile {
-		position: absolute;
-		top: 0;
-		left: auto;
-		right: 0;
-		z-index: 10;
-	}
-	.map {
+	.layout {
+		position: relative;
 		width: 100%;
 		height: 100%;
+		display: grid;
+		grid-template-columns: minmax(35rem, 30%) 1fr auto auto;
+		grid-template-rows: auto 1fr;
+		gap: 1rem;
+		padding: 1rem;
 	}
-	.container {
-		height: 16vh;
-		width: 98vw;
-		margin: 0 1vw;
-		padding: 1rem 1rem;
-		overflow: hidden;
-		transition: height 0.5s ease;
+	.map {
 		position: absolute;
-		bottom: 0;
-		z-index: 3;
-		background-color: rgba(255, 255, 255, 0.8);
-		backdrop-filter: blur(4px);
-		border-radius: 1rem 1rem 0 0;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+	.header-container {
+		grid-area: 1 / 1 / 2 / 2;
+		z-index: 1;
+	}
+	.profile-container {
+		grid-area: 1 / 3 / 2 / 5;
+		z-index: 1;
+	}
+	.page {
+		grid-area: 2 / 1 / 3 / 2;
+		z-index: 2;
+
+		&.full {
+			grid-area: 2 / 1 / 3 / 5;
+		}
+
+		&.hidden {
+			transform: translateX(100%);
+		}
 	}
 </style>

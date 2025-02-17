@@ -16,7 +16,7 @@
 		restroom: Toilet,
 		parking: Car
 	};
-	let Icon = $state(iconMap[subtype]);
+	let Icon = iconMap[subtype];
 </script>
 
 <div class="marker" style="--color: {colorMap[type]}">
