@@ -3,7 +3,7 @@
 </script>
 
 <div class="logo">
-	<span>pinsc</span>
+	<span>pinSc</span>
 	<span class="pin">{@html PinSmall}</span>
 	<span>ut</span>
 </div>

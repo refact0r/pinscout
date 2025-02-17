@@ -1,13 +1,12 @@
 <script>
 	import { selectedPin } from '$lib/state.svelte.js';
-	import { X } from 'phosphor-svelte';
+	import X from 'phosphor-svelte/lib/X';
 	import { supabase } from '$lib/supabaseClient';
 	import { v4 as uuidv4 } from 'uuid';
 	import { userState } from '$lib/state.svelte';
 	import { PUBLIC_SUPABASE_URL } from '$env/static/public';
 	import { colorMap } from '$lib/utils';
-	import { get } from 'svelte/store';
-	import { onMount } from 'svelte';
+	import Modal from '$lib/components/Modal.svelte';
 
 	let { data, form } = $props();
 	let images = $state([]);
@@ -31,7 +30,8 @@
 		const { data: newImages, error: imageError } = await supabase
 			.from('images')
 			.select('*')
-			.eq('pin_id', pin.id);
+			.eq('pin_id', pin.id)
+			.order('created_at', { ascending: false });
 
 		if (imageError) {
 			console.error('Failed to refresh images:', imageError);
@@ -83,6 +83,12 @@
 			uploadError = 'unexpected error during upload';
 		}
 	}
+
+	let modal = $state();
+
+	function openModal() {
+		modal.open();
+	}
 </script>
 
 <div class="page">
@@ -103,23 +109,32 @@
 		{/if}
 	</h1>
 
-	<h2>Images</h2>
-	<input
-		type="file"
-		accept="image/png, image/jpeg, image/gif, image/webp, image/avif"
-		bind:this={fileInput}
-	/>
-	<button onclick={uploadImage}>Upload</button>
+	{#if images.length > 0}
+		<div class="image-list">
+			{#each images as image}
+				<img src={`${PUBLIC_SUPABASE_URL}storage/v1/object/public/images/${image.image_path}`} />
+			{/each}
+		</div>
+	{/if}
+
+	{#if userState.user}
+		<button class="upload surface-button" onclick={openModal}>upload image</button>
+	{/if}
+</div>
+
+<Modal bind:this={modal} title="upload image"
+	><div class="upload-row">
+		<input
+			type="file"
+			accept="image/png, image/jpeg, image/gif, image/webp, image/avif"
+			bind:this={fileInput}
+		/>
+		<button class="surface-button" onclick={uploadImage}>Upload</button>
+	</div>
 	{#if uploadError}
 		<p class="error">{uploadError}</p>
 	{/if}
-
-	<div class="image-list">
-		{#each images as image}
-			<img src={`${PUBLIC_SUPABASE_URL}storage/v1/object/public/images/${image.image_path}`} />
-		{/each}
-	</div>
-</div>
+</Modal>
 
 <style>
 	.page {
@@ -153,16 +168,38 @@
 	}
 
 	.image-list {
-		display: flex;
-		flex-wrap: wrap;
 		gap: 1rem;
-		margin-top: 1rem;
+		display: flex;
+		overflow-x: scroll;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		border-radius: 0.75rem;
+		margin: 1rem 0;
+	}
+
+	.image-list::-webkit-scrollbar {
+		display: none;
 	}
 
 	.image-list img {
-		width: 200px;
-		height: auto;
-		border-radius: 0.5rem;
+		width: 15rem;
+		height: 20rem;
+		border-radius: 0.75rem;
 		object-fit: cover;
+	}
+
+	.upload {
+		width: 100%;
+		margin-bottom: 1rem;
+	}
+
+	.upload-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.error {
+		margin-bottom: 0;
 	}
 </style>

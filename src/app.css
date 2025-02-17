@@ -1,25 +1,29 @@
 :root {
 	--text: hsl(0, 0%, 0%);
 	--bg: hsla(0, 0%, 100%, 0.7);
-	--border: hsla(0, 0%, 100%, 0.5);
-	--red: oklch(70% 0.13 0);
+	--bg-2: hsla(0, 0%, 100%, 0.5);
+	--bg-3: hsla(0, 0%, 100%, 0.3);
+	--red: oklch(70% 0.13 10);
 	--purple: oklch(70% 0.13 310);
 	--blue: oklch(70% 0.13 260);
 	--teal: oklch(70% 0.13 210);
 	--green: oklch(70% 0.13 160);
-	--yellow: oklch(75% 0.13 100);
-	--orange: oklch(70% 0.13 50);
+	--yellow: oklch(75% 0.13 110);
+	--orange: oklch(70% 0.13 60);
 }
 
 * {
 	box-sizing: border-box;
 }
 
+html,
 body {
+	height: 100%;
 	margin: 0;
-	width: 100vw;
-	height: 100vh;
+	padding: 0;
+}
 
+body {
 	font-family: 'Urbanist', serif;
 	font-weight: 500;
 }
@@ -28,11 +32,16 @@ body {
 	backdrop-filter: blur(0.75rem);
 	background: var(--bg);
 	border-radius: 1rem;
-	border: 2px solid var(--border);
+	border: 2px solid var(--bg-2);
+	overflow: hidden;
 }
 
 a {
 	color: var(--text);
+}
+
+input {
+	font: inherit;
 }
 
 button {
@@ -42,5 +51,16 @@ button {
 
 	&:hover {
 		cursor: pointer;
+	}
+}
+
+.surface-button {
+	padding: 0.5rem 0.75rem;
+	border-radius: 0.75rem;
+	border: 2px solid var(--bg-3);
+	background: var(--bg-2);
+
+	&:hover {
+		background: var(--bg-3);
 	}
 }

@@ -162,7 +162,6 @@
 
 <style>
 	.layout {
-		position: relative;
 		width: 100%;
 		height: 100%;
 		display: grid;
@@ -191,10 +190,10 @@
 		grid-area: 2 / 1 / 3 / 5;
 		width: 30%;
 		min-width: 35rem;
+		margin-left: 0;
 		z-index: 2;
-		transform: translateX(0);
 		transition:
-			transform 0.3s,
+			margin-left 0.3s,
 			width 0.2s;
 
 		&.full {
@@ -202,7 +201,7 @@
 		}
 		&.hidden {
 			width: 30%;
-			transform: translateX(-105%);
+			margin-left: -100%;
 		}
 	}
 </style>
