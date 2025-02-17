@@ -35,12 +35,13 @@
 	let locations_sort = data.users.slice();
 	locations_sort.sort((x, y) => y.locations_marked - x.locations_marked);
 
-	let pp_ranking = pp_sort.findIndex((user) => user.name === userState.user?.name)+1;
-	let reviews_ranking = reviews_sort.findIndex((user) => user.name === userState.user?.name)+1;
-	let status_ranking = status_sort.findIndex((user) => user.name === userState.user?.name)+1;
-	let quests_ranking = quests_sort.findIndex((user) => user.name === userState.user?.name)+1;
-	let friends_ranking = friends_sort.findIndex((user) => user.name === userState.user?.name)+1;
-	let locations_ranking = locations_sort.findIndex((user) => user.name === userState.user?.name)+1;
+	let pp_ranking = pp_sort.findIndex((user) => user.name === userState.user?.name) + 1;
+	let reviews_ranking = reviews_sort.findIndex((user) => user.name === userState.user?.name) + 1;
+	let status_ranking = status_sort.findIndex((user) => user.name === userState.user?.name) + 1;
+	let quests_ranking = quests_sort.findIndex((user) => user.name === userState.user?.name) + 1;
+	let friends_ranking = friends_sort.findIndex((user) => user.name === userState.user?.name) + 1;
+	let locations_ranking =
+		locations_sort.findIndex((user) => user.name === userState.user?.name) + 1;
 
 	onMount(() => {
 		var now = new Date();
@@ -396,6 +397,9 @@
 	.content {
 		padding: 2rem;
 		position: relative;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
 	}
 	h1 {
 		margin: 1rem 0;
@@ -413,7 +417,7 @@
 		font-weight: 700;
 	}
 	.dashboard {
-		height: 66vh;
+		height: 100%;
 		overflow: auto;
 	}
 	.line {
