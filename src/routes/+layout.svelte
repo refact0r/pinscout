@@ -36,7 +36,10 @@
 		data.pins.forEach((pin) => {
 			if (bounds.contains([pin.longitude, pin.latitude])) {
 				const ref = document.createElement('div');
-				mount(Pin, { target: ref, props: { type: pin.type, subtype: pin.subtype } });
+				mount(Pin, {
+					target: ref,
+					props: { type: pin.type, subtype: pin.subtype, pin_id: pin.id }
+				});
 				const marker = new mapboxgl.Marker({ element: ref, anchor: 'bottom' })
 					.setLngLat([pin.longitude, pin.latitude])
 					.addTo(map);

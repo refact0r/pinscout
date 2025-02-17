@@ -3,7 +3,7 @@
 	import { Toilet } from 'phosphor-svelte';
 	import { Car } from 'phosphor-svelte';
 
-	let { type, subtype } = $props();
+	let { type, subtype, pin_id } = $props();
 
 	const colorMap = {
 		safety: 'var(--red)',
@@ -19,14 +19,14 @@
 	let Icon = iconMap[subtype];
 </script>
 
-<div class="marker" style="color: {colorMap[type]}">
+<a class="marker" style="color: {colorMap[type]}" href={`/pin/${pin_id}`}>
 	{@html PinOutlined}
 	<div class="icon">
 		{#if iconMap[subtype]}
 			<Icon size={18} />
 		{/if}
 	</div>
-</div>
+</a>
 
 <style>
 	.marker {
