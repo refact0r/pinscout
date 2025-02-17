@@ -8,6 +8,7 @@
 	import { userState } from '$lib/state.svelte';
 
 	import Header from '../lib/components/Header.svelte';
+	import { goto } from '$app/navigation';
 
 	mapboxgl.accessToken =
 		'pk.eyJ1IjoicmVmYWN0MHIiLCJhIjoiY203ODZndDB3MHI4bTJrcHVpcDl0a2NjYiJ9.oFH9TjRqRRobGDri9dbmfA';
@@ -117,8 +118,12 @@
 				container_height = 20;
 			}	
 		} else if ($page.url.pathname === "/dashboard") {
-			map_height = 20;
-			container_height = 80;
+			if (!logged_in) {
+				goto('/login');
+			} else {
+				map_height = 20;
+				container_height = 80;
+			}
 		} else if ($page.url.pathname === "/login" || $page.url.pathname === "/signup" || $page.url.pathname === "/settings" || $page.url.pathname === "/about") {
 			map_height = 20;
 			container_height = 80;
@@ -140,8 +145,12 @@
 				container_height = 20;
 			}	
 		} else if (pathname === "/dashboard") {
-			map_height = 20;
-			container_height = 80;
+			if (!logged_in) {
+				goto('/login');
+			} else {
+				map_height = 20;
+				container_height = 80;
+			}
 		} else if (pathname === "/login" || pathname === "/signup" || pathname === "/settings" || pathname === "/about") {
 			map_height = 20;
 			container_height = 80;

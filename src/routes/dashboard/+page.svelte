@@ -15,12 +15,11 @@
 
 <style>
 	.content {
-		
-		background-color: rgba(73, 171, 207, 1);
 	}
 	.dashboard {
-		background-color: rgba(255, 255, 255, 0.6);
+		background-color: rgb(123, 195, 222);
 		border-radius: 1vw;
+        padding: 2vh 2vw;
 	}
 	.stats {
 		display: flex;
