@@ -87,6 +87,7 @@ button {
 	border-radius: 0.75rem;
 	border: 2px solid var(--bg-2);
 	background: var(--bg);
+	backdrop-filter: blur(0.75rem);
 	width: 2.5rem;
 	height: 2.5rem;
 }
@@ -95,4 +96,7 @@ button {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
+}
+.mapboxgl-canvas {
+	filter: brightness(0.8);
 }

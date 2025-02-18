@@ -16,6 +16,7 @@
 	import { supabase } from '$lib/supabaseClient';
 
 	import X from 'phosphor-svelte/lib/X';
+	import { get } from 'svelte/store';
 
 	let { children } = $props();
 
@@ -58,21 +59,19 @@
 	}
 
 	async function getPins() {
-		const { data: newPins, error } = await supabase.from('pins').select('*');
+		const userLocation = await getPosition();
+		const { data: newPins, error } = await supabase.rpc('nearby_pins', {
+			center_latitude: userLocation[1],
+			center_longitude: userLocation[0],
+			distance_in_km: 5
+		});
 		if (error) {
 			console.error('Failed to fetch pins:', error.message);
 		}
 		pinState.pins = newPins || [];
 	}
 
-	onMount(async () => {
-		// check and get auth user
-		userState.user = await getUser();
-
-		if (userState.user) {
-			logged_in = true;
-		}
-
+	async function getPosition() {
 		// default position in case geolocation fails
 		let userLocation = [-122.205, 47.613];
 
@@ -95,6 +94,19 @@
 		// } catch (error) {
 		// 	console.warn('Failed to get location:', error);
 		// }
+
+		return userLocation;
+	}
+
+	onMount(async () => {
+		// check and get auth user
+		userState.user = await getUser();
+
+		if (userState.user) {
+			logged_in = true;
+		}
+
+		const userLocation = await getPosition();
 
 		// initialize map
 		map = new mapboxgl.Map({
@@ -150,6 +162,8 @@
 		});
 
 		await getPins();
+
+		console.log('getPins', pinState.pins);
 	});
 
 	function togglePlacingMode() {
@@ -189,7 +203,7 @@
 				return;
 			}
 
-			location.reload();
+			await getPins();
 		}
 	}
 
