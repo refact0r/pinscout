@@ -71,3 +71,28 @@ button {
 #map .mapboxgl-ctrl-attrib a {
 	color: white;
 }
+#map .mapboxgl-ctrl-bottom-right {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.5rem;
+	margin-bottom: 5.5rem;
+	margin-right: 1rem;
+}
+#map .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl,
+.mapboxgl-ctrl-right .mapboxgl-ctrl {
+	margin: 0;
+}
+#map .mapboxgl-ctrl-group button {
+	border-radius: 0.75rem;
+	border: 2px solid var(--bg-2);
+	background: var(--bg);
+	width: 2.5rem;
+	height: 2.5rem;
+}
+#map .mapboxgl-ctrl-group {
+	background: transparent;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}

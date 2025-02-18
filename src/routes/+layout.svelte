@@ -105,6 +105,14 @@
 			attributionControl: false
 		});
 
+		// add other controls
+		map.addControl(
+			new mapboxgl.NavigationControl({
+				visualizePitch: true
+			}),
+			'bottom-right'
+		);
+
 		// add geolocate control
 		const geolocate = new mapboxgl.GeolocateControl({
 			positionOptions: {
@@ -113,15 +121,7 @@
 			trackUserLocation: true,
 			showUserHeading: true
 		});
-		map.addControl(geolocate, 'right');
-
-		// add other controls
-		map.addControl(
-			new mapboxgl.NavigationControl({
-				visualizePitch: true
-			}),
-			'right'
-		);
+		map.addControl(geolocate, 'bottom-right');
 
 		// turn on geolocation when map is loaded
 		map.on('load', () => {
