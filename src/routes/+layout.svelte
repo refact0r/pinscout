@@ -111,7 +111,7 @@
 		// initialize map
 		map = new mapboxgl.Map({
 			container: 'map', // container ID
-			style: 'mapbox://styles/mapbox/satellite-streets-v12', // style URL
+			style: 'mapbox://styles/mapbox/satellite-v9', // style URL
 			center: userLocation, // starting position [lng, lat]
 			zoom: 16, // starting zoom
 			attributionControl: false
