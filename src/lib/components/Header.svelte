@@ -40,6 +40,7 @@
 		>
 			<Ranking />
 		</a>
+		<!--
 		{#if userState.user}
 			<a
 				class="link"
@@ -49,7 +50,7 @@
 			>
 				<Gear />
 			</a>
-		{/if}
+		{/if}-->
 		<a class="link" href="/about" title="About" class:active={page.url.pathname === '/about'}>
 			<Info />
 		</a>
