@@ -106,7 +106,7 @@
 			logged_in = true;
 		}
 
-		const userLocation = await getPosition();
+		const userLocation = [-122.205, 47.613];
 
 		// initialize map
 		map = new mapboxgl.Map({
