@@ -76,24 +76,24 @@
 		let userLocation = [-122.205, 47.613];
 
 		// get user location if possible
-		// try {
-		// 	const position = await new Promise((resolve, reject) => {
-		// 		if (!navigator.geolocation) {
-		// 			reject(new Error('Geolocation not supported'));
-		// 		}
-		// 		navigator.geolocation.getCurrentPosition(
-		// 			(position) => resolve(position),
-		// 			(error) => reject(error),
-		// 			{
-		// 				enableHighAccuracy: true
-		// 			}
-		// 		);
-		// 	});
-		// 	userLocation = [position.coords.longitude, position.coords.latitude];
-		// 	console.log('Got position:', position);
-		// } catch (error) {
-		// 	console.warn('Failed to get location:', error);
-		// }
+		try {
+			const position = await new Promise((resolve, reject) => {
+				if (!navigator.geolocation) {
+					reject(new Error('Geolocation not supported'));
+				}
+				navigator.geolocation.getCurrentPosition(
+					(position) => resolve(position),
+					(error) => reject(error),
+					{
+						enableHighAccuracy: true
+					}
+				);
+			});
+			userLocation = [position.coords.longitude, position.coords.latitude];
+			console.log('Got position:', position);
+		} catch (error) {
+			console.warn('Failed to get location:', error);
+		}
 
 		return userLocation;
 	}
