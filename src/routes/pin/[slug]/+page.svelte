@@ -97,6 +97,7 @@
 	let textinput = $state('');
 
 	async function refreshReviews(pin) {
+		if (!pin) return;
 		const { data: newReviews, error } = await supabase
 			.from('reviews')
 			.select('*')
