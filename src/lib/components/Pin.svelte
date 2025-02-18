@@ -1,6 +1,7 @@
 <script>
 	import PinOutlined from '$lib/assets/pin-outlined.svg?raw';
 	import { colorMap } from '$lib/utils';
+	import { selectedPin } from '$lib/state.svelte';
 	import Plus from 'phosphor-svelte/lib/Plus';
 	import FirstAidKit from 'phosphor-svelte/lib/FirstAidKit';
 	import Phone from 'phosphor-svelte/lib/Phone';
@@ -48,7 +49,12 @@
 	let Icon = iconMap[subtype];
 </script>
 
-<a class="marker" style="color: {colorMap[type]}" href={pin_id ? `/pin/${pin_id}` : ''}>
+<a
+	class="marker"
+	class:active={String(selectedPin.pin) === String(pin_id)}
+	style="color: {colorMap[type]}"
+	href={pin_id ? `/pin/${pin_id}` : ''}
+>
 	{@html PinOutlined}
 	<div class="icon">
 		{#if iconMap[subtype]}
@@ -67,6 +73,11 @@
 		grid-template-columns: auto;
 		grid-template-rows: auto;
 		color: #333;
+		transition: 0.2s;
+	}
+	.marker.active {
+		transform: scale(1.5);
+		transform-origin: bottom;
 	}
 	:global(.marker svg) {
 		grid-row: 1;

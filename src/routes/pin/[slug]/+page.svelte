@@ -93,7 +93,7 @@
 		modal.open();
 	}
 
-	let reviews = $state(data.reviews);
+	let reviews = $state([]);
 	let textinput = $state('');
 
 	async function refreshReviews(pin) {
@@ -109,7 +109,8 @@
 			return;
 		}
 
-		reviews = newReviews || [];
+		reviews = newReviews.sort((x, y) => y.created_at - x.created_at) || [];
+		reviews.reverse();
 	}
 
 	async function submitReview() {
@@ -124,7 +125,7 @@
 			return;
 		}
 
-		refreshReviews();
+		await refreshReviews(pin);
 
 		textinput = '';
 	}
@@ -164,7 +165,7 @@
 		{#if userState.user}
 			<div class="review-form">
 				<textarea bind:value={textinput} placeholder="Leave a review" maxlength="25"></textarea>
-				<button onclick={submitReview}><PaperPlaneRight /></button>
+				<button class="surface-button" onclick={submitReview}><PaperPlaneRight /></button>
 			</div>
 			{#each reviews as review}
 				<div class="review">
@@ -273,18 +274,14 @@
 	.review-form {
 		display: flex;
 		margin-bottom: 1rem;
-		gap: 1.5rem;
+		gap: 1rem;
 
 		button {
-			background-color: var(--bg-2);
-			border-radius: 0.75rem;
 			font-size: 1.5rem;
-			width: 2.5rem;
-			height: 2.5rem;
+			width: 3rem;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			border: 2px solid var(--bg-2);
 		}
 
 		textarea {
