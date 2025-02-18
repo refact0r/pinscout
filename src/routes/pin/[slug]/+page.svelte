@@ -162,7 +162,6 @@
 		{/if}
 
 		{#if userState.user}
-			<div>is it still here?</div>
 			<div class="review-form">
 				<textarea bind:value={textinput} placeholder="Leave a review" maxlength="25"></textarea>
 				<button onclick={submitReview}><PaperPlaneRight /></button>
