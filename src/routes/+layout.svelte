@@ -6,6 +6,7 @@
 	import 'mapbox-gl/dist/mapbox-gl.css';
 	import { getUser } from '$lib/supabaseClient';
 	import { userState, pinState } from '$lib/state.svelte';
+	import { PUBLIC_MAPBOX_ACCESS_TOKEN } from '$env/static/public';
 
 	import Header from '../lib/components/Header.svelte';
 	import Profile from '$lib/components/Profile.svelte';
@@ -20,8 +21,7 @@
 
 	let { children } = $props();
 
-	mapboxgl.accessToken =
-		'pk.eyJ1IjoicmVmYWN0MHIiLCJhIjoiY203ODZndDB3MHI4bTJrcHVpcDl0a2NjYiJ9.oFH9TjRqRRobGDri9dbmfA';
+	mapboxgl.accessToken = PUBLIC_MAPBOX_ACCESS_TOKEN;
 
 	let map;
 	let mapPins = [];
